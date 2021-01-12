@@ -4,6 +4,59 @@
 
 {% block body %}
 
-    <h1>Page d'accueil</h1>
- 
+    <section class="jumbotron d-flex align-items-center text-center mb-5 introduction">
+        
+        <div class="container">
+          
+          <h1 class="jumbotron-heading">Bienvenue</h1>
+          <p class="lead text-muted">Découvrez ici, des tas de choses intéressantes !</p>
+          
+          <p>
+            <a href="{{ path('apropos') }}" class="btn btn-primary my-2 btn-blue">Nous découvrir</a>
+            <a href="#" class="btn btn-secondary my-2">Lire nos articles</a>
+          </p>
+        
+        </div>
+    
+    </section>
+
+    <section class="d-flex align-items-center mb-5 accueil_articles">
+    
+        {# <div class="card-deck">
+        
+            {% for article in articles %}
+            <!-- pour chaque article du tableau d'articles -->
+
+            <div class="card">
+                
+                {% if article.image %}
+                <!-- si l'article a une image -->
+                    <img class="card-img-top" src="{{ asset(uploads_base_url ~ article.image) }}" alt="Card image cap">
+                    <!-- affiche l'image de la BDD -->
+                {% else %}
+                <!-- sinon -->
+                    <img class="card-img-top" src="{{ asset('images/images_article_default.jpg') }}" alt="Card image cap">
+                    <!-- affiche l'image par défaut -->
+                {% endif %}
+                <!-- fin de la condiction -->
+
+                <div class="card-body">
+                    <h5 class="card-title">{{ article.title }}</h5>
+                    <p class="card-text">{{ article.contenu }}</p>
+                    <button class="btn btn-primary btn-blue"><a href="{{ path('article', { id: article.id }) }}">Lire</a></button>
+                </div>
+        
+                <div class="card-footer">
+                    <small class="text-muted">{{ article.view }} vues | {{ article.view }} </small>
+                </div>
+        
+            </div>
+
+            {% endfor %}
+            <!-- fin de la boucle -->
+
+        </div> #}
+
+    </section>
+
 {% endblock %}
