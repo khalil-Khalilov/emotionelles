@@ -54,8 +54,11 @@
         <!-- MAIN --> 
         <main class="container-fluid mt-5 mb-5">
 
+        <div class="pt-3">
+            {% include 'base/lignedecode/_flash.html.twig' %}
+
             {% block body %}{% endblock %}
-        
+        </div>
         </main>
 
         <!-- FOOTER -->

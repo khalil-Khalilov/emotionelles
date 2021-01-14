@@ -1,0 +1,13 @@
+
+{#le document ligne de code a été crée pour  certains fichiers qui ne contiennent que quelques ligne.
+Nous avons crée un fichier flash qui permet d'afficher les messages envoyé par les utilisateurs.
+un document lignedecode  contiendra tout les fichers twig: comme des messages flash animation etc... ...etc#}
+{# ce bout de code nous permets d'afficher un message de succes flash  #}
+{% for label, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="alert alert-{{ label }}" role="alert">
+            {{ message }}
+        </div>
+    {% endfor %}
+
+{% endfor %}

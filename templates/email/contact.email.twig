@@ -1,0 +1,12 @@
+{# se dossier est en relation avec le htmlTemplate qui se trouve dans le dossier SERVICE et le fichier EmailService.php#}
+{#Nous pouvons faire du html dans ce dossier d'envoi de message. #}
+{% extends "email/base.email.twig" %}
+
+{% block body %}
+
+Vous avez un message de {{ nom }} <br> {{ prenom }} <br> {{ numero }} <br> {{ mail }}   </b>
+<br><br>
+{{ numero }}
+ <b>CONTENU DU MESSAGE: <br></b>{{ message|nl2br }}
+
+{% endblock %}
