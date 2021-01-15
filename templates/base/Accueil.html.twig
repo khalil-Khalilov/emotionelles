@@ -3,6 +3,13 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
+    {#Permet d'afficher le type de connexion a l'utilisateur#} 
+    
+    {#  {% if is_granted('ROLE_USER') %}
+        Vous êtes connecté entant que membre
+        {% else %}
+            Vous n'êtes pas membre. inscrivez-vous
+    {% endif % } #}
 
     <!-- SECTION 1 : INTRODUCTION -->
     <section class="container introduction">
@@ -56,7 +63,7 @@
     
         <!-- TITRE -->
         <div class="row pb-4 titre_realisations">
-        
+
             <h2 class="bleu_clair">Nos réalisations</h2>
             
             <img class="apostrophe_petite" src="{{ asset('images/apostrophe_petite_bleu_clair.png')}}" alt="Apostrophe"/>
@@ -311,7 +318,6 @@
             <h3>Retrouvez-nous près de chez vous !</h3>
 
         </div>
-
        
         <div class="row contenu_actualites">
 

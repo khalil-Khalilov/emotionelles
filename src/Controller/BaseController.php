@@ -12,8 +12,10 @@ class BaseController extends AbstractController
     /**
      * @Route("/", name="accueil")
      */
-    public function index(): Response
+    public function accueil(): Response
     {
+      
+
 
         return $this->render('base/accueil.html.twig');
     }
@@ -31,5 +33,27 @@ class BaseController extends AbstractController
         return $this->render('base/header.html.twig');
     }
 
+
+
+    //Nous creons une nouvelles route pour la session d acces au role. elle permet de renvoyer le type d'utilisateur vers son espace correspondant
+    //si l'acces est authentifié au role admin dans ce cas, nous le renvoyons vers l'espace admin .aussi si le role utilisateur est authentifié
+    //il sera redirigé vers l'accueil 
+       /**
+     * @Route("/acces-compte", name="acces_compte")
+     */
+    public function accesCompte(): Response
+    {
+        if($this->isGranted('ROLE_ADMIN')) {
+            return $this->redirectToRoute('page_admin');
+
+        } elseif ($this->isGranted('ROLE_USER')) {
+            return $this->redirectToRoute('espace_utilisateur');
+        }else{
+            return $this->redirectToRoute('accueil');
+
+        }
+        
+    }
+  
 }
 
