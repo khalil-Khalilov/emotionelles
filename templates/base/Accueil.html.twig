@@ -4,59 +4,568 @@
 
 {% block body %}
 
-    <section class="jumbotron d-flex align-items-center text-center mb-5 introduction">
+    <!-- SECTION 1 : INTRODUCTION -->
+    <section class="container introduction">
+    
+        <div class="row element_intro">
+
+            <!-- IMAGE INTRO -->
+            <div class="col-sm img_intro"></div>
+
+            <!-- BLOC GRIS -->
+            <div class="bloc_gris"></div>
+
+            <!-- BLOC TEXTES PRESENTATION -->
+            <div class="col-sm presentation">
+            
+                <div class="bloc_titre_texte">
+                    
+                    <div class="row titre_introduction">
+                        
+                        <h2 class="bleu_clair">Tapissier</h2>
+                        
+                        <img class="apostrophe_petite" src="{{ asset('images/apostrophe_petite_bleu_clair.png')}}" alt="Apostrophe">
+                        
+                        <h2>Décorateur</h2>
+
+                    </div>
+
+                    <div class="bloc_texte">
+                    
+                        <h4>Racontons ensemble vos histoires !</h4>
+
+                        <p>Accordant une grande importance au savoir-faire artisanal, notre atelier a à coeur de vous séduire en créant chez vous des émotions et des sensations vous offrant un véritable voyage.</p>
+
+                        <!-- BOUTON LIEN PAGE A PROPOS -->
+                        <button class="btn_redirection">
+                            <a href="{{ path('apropos') }}">nous connaitre&nbsp;&nbsp;<i class="fas fa-arrow-right"></i></a>
+                        </button>
+                    
+                    </div>
+                
+                </div>
+
+            </div>
+
+        </div>    
+    
+    </section>
+
+    <!-- SECTION 2 : RÉALISATIONS -->
+    <section class="container mb-5 pt-3 pb-3 mt-5 realisations">
+    
+        <!-- TITRE -->
+        <div class="row pb-4 titre_realisations">
         
-        <div class="container">
-          
-          <h1 class="jumbotron-heading">Bienvenue</h1>
-          <p class="lead text-muted">Découvrez ici, des tas de choses intéressantes !</p>
-          
-          <p>
-            <a href="{{ path('apropos') }}" class="btn btn-primary my-2 btn-blue">Nous découvrir</a>
-            <a href="#" class="btn btn-secondary my-2">Lire nos articles</a>
-          </p>
+            <h2 class="bleu_clair">Nos réalisations</h2>
+            
+            <img class="apostrophe_petite" src="{{ asset('images/apostrophe_petite_bleu_clair.png')}}" alt="Apostrophe"/>
+            
+            <h3>Réalisées mains rien que pour vous !</h3>
+
+        </div>
+
+        <!-- TOUTES LES REALISATIONS -->
+        <div class="row contenu_realisations">
+        
+            <!-- REALISATION 1 : GRAND BLOC -->
+            <div class="col-6 realisations grand_bloc">
+            
+                <!-- IMAGE -->
+                <div class="image_realisation">
+
+                    <!-- MORE -->
+                    <div class="bloc_more">
+                
+                        <div class="more">
+                        
+                            <p></p>
+                        
+                        </div>
+
+                            <!-- FOLLOW -->
+                            <div class="follow">
+                        
+                            <!-- COEUR VIDE -->
+                            <i class="far fa-heart"></i>
+
+                            {# <!-- COEUR PLEIN -->
+                            <i class="fas fa-heart"></i> #}
+
+                            <!-- SHARE -->
+                            <i class="fas fa-share-alt"><a href="#"></a></i>
+                    
+                        </div>
+            
+                    </div>
+
+                </div>
+
+                <!-- TEXTE -->
+                <div class="texte_realisations">
+                
+                    <div class="row pb-2 titre_description">
+                    
+                        <h4>Fauteuil club</h4>
+    
+                        <p class="pl-2 pt-1">Cuir brun - Réfection moderne</p>
+                    
+                    </div>
+
+                    <div class="row mt-4 prix_btn_acheter">
+                        
+                        <button class="row btn_acheter"><a href="#">Acheter&nbsp;<span class="prix">&nbsp;350€&nbsp;</span></a><i class="fas fa-store"></i></button>
+                    
+                    </div>
+                
+                </div>
+            
+            </div>
+
+            <!-- REALISATION 2 : PETIT BLOC 1 -->
+            <div class="col realisations petit_bloc1">
+            
+                <!-- IMAGE -->
+                <div class="image_realisation">
+                    
+                    <!-- MORE -->
+                    <div class="bloc_more">
+                
+                        <div class="more">
+                        
+                            <p></p>
+                        
+                        </div>
+
+                            <!-- FOLLOW -->
+                            <div class="follow">
+                        
+                            <!-- COEUR VIDE -->
+                            <i class="far fa-heart"></i>
+
+                            {# <!-- COEUR PLEIN -->
+                            <i class="fas fa-heart"></i> #}
+
+                            <!-- SHARE -->
+                            <i class="fas fa-share-alt"><a href="#"></a></i>
+                    
+                        </div>
+            
+                    </div>
+
+                </div>
+
+                <!-- TEXTE -->
+                <div class="texte_realisations">
+                
+                    <h4>Banquette</h4>
+
+                    <p class="mb-3">Lin - Réfection traditionnelle</p>
+
+                    <div class="row mt-4 prix_btn_acheter">
+                        
+                        <button class="row btn_acheter"><a href="#">Acheter&nbsp;<span class="prix">&nbsp;450€&nbsp;</span></a><i class="fas fa-store"></i></button>
+                    
+                    </div>
+                
+                </div>
+                
+            </div>      
+            
+            <!-- REALISATION 3 : PETIT BLOC 2 -->
+            <div class="col realisations petit_bloc2">
+            
+                <!-- IMAGE -->
+                <div class="image_realisation">
+                    
+                    <!-- MORE -->
+                    <div class="bloc_more">
+                
+                        <div class="more">
+                        
+                            <p></p>
+                        
+                        </div>
+
+                            <!-- FOLLOW -->
+                            <div class="follow">
+                        
+                            <!-- COEUR VIDE -->
+                            <i class="far fa-heart"></i>
+
+                            {# <!-- COEUR PLEIN -->
+                            <i class="fas fa-heart"></i> #}
+
+                            <!-- SHARE -->
+                            <i class="fas fa-share-alt"><a href="#"></a></i>
+                    
+                        </div>
+            
+                    </div>
+
+                </div>
+
+                <!-- TEXTE -->
+                <div class="texte_realisations">
+                
+                    <h4>Canapé</h4>
+
+                    <p class="mb-3">Velour rouge - Réfection moderne</p>
+
+                    <div class="row mt-4 prix_btn_acheter">
+                        
+                        <button class="row btn_acheter"><a href="#">Acheter&nbsp;<span class="prix">&nbsp;1050€&nbsp;</span></a><i class="fas fa-store"></i></button>
+                    
+                    </div>
+                
+                </div>
+            
+            </div>
+    
+        </div>
+
+        <div class="btn_redirection_realisations">
+        
+            <!-- BOUTON LIEN PAGE REALISATIONS -->
+            <button class="btn_redirection">
+                <a href="{{ path('realisations') }}">découvrir toutes  nos réalisations&nbsp;<i class="fas fa-arrow-right"></i></a>
+            </button>
+        
+        </div>
+
+    </section>
+
+    <!-- SECTION 3 : PROJET PERSONNALISÉ -->
+    <section class="container mb-5 pt-3 pb-3 mt-5 projet_personnalise">
+    
+        <!-- LIGNE CATEGORIES DE PRODUITS -->
+        <div class="row categories_produits">
+        
+            <!-- CATEGORIE 1 -->
+            <div class="col-sm bloc_categorie rideau">
+                
+                <div class="categorie">
+                    <p>rideau</p>
+                </div>
+            
+            </div>
+        
+            <!-- CATEGORIE 2 -->
+            <div class="col-sm bloc_categorie tapisserie">
+
+                <div class="categorie">
+                    <p>tapisserie</p>
+                </div>
+            
+            </div>
+
+            <!-- CATEGORIE 3 -->
+            <div class="col-sm bloc_categorie creation">
+
+                <div class="categorie">
+                    <p>création</p>
+                </div>
+                
+            </div>
+
+            <!-- CATEGORIE 4 -->
+            <div class="col-sm bloc_categorie decor">
+
+                <div class="categorie">
+                    <p>décor</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="lien_projet_personnalise">
+             
+            <div class="d-flex flex-column titre_personnalise">
+                
+                <h3 class="bleu_clair">Un projet personnalisé</h3>             
+
+                <h4 class="pt-3">Confiez-le nous !</h4>
+
+                <!-- BOUTON LIEN PAGE RESERVATION RENDEZ-VOUS -->
+                <button class="btn_redirection">
+                    <a href="{{ path('reservation') }}">réserver un rendez-vous&nbsp;<i class="fas fa-arrow-right"></i></a>
+                </button>
+
+            </div>
         
         </div>
     
     </section>
 
-    <section class="d-flex align-items-center mb-5 accueil_articles">
+    <!-- SECTION 4 : ACTUALITÉS -->
+    <section class="container mb-5 pt-3 pb-3 mt-5 actualites">
     
-        {# <div class="card-deck">
+        <!-- TITRE -->
+        <div class="row pb-4 titre_actualites">
         
-            {% for article in articles %}
-            <!-- pour chaque article du tableau d'articles -->
+            <h2 class="bleu_clair">Nos actualités</h2>
+            
+            <img class="apostrophe_petite" src="{{ asset('images/apostrophe_petite_bleu_clair.png')}}" alt="Petite apostrophe"/>
+            
+            <h3>Retrouvez-nous près de chez vous !</h3>
 
-            <div class="card">
+        </div>
+
+       
+        <div class="row contenu_actualites">
+
+            <!-- ACTUALITE 1 : PETIT BLOC 1 -->
+            <div class="col actualites petit_bloc1">
+            
+                <!-- IMAGE -->
+                <div class="image_actualite">
+                    
+                    <!-- MORE -->
+                    <div class="bloc_more">
                 
-                {% if article.image %}
-                <!-- si l'article a une image -->
-                    <img class="card-img-top" src="{{ asset(uploads_base_url ~ article.image) }}" alt="Card image cap">
-                    <!-- affiche l'image de la BDD -->
-                {% else %}
-                <!-- sinon -->
-                    <img class="card-img-top" src="{{ asset('images/images_article_default.jpg') }}" alt="Card image cap">
-                    <!-- affiche l'image par défaut -->
-                {% endif %}
-                <!-- fin de la condiction -->
+                        <div class="more">
+                        
+                            <p></p>
+                        
+                        </div>
 
-                <div class="card-body">
-                    <h5 class="card-title">{{ article.title }}</h5>
-                    <p class="card-text">{{ article.contenu }}</p>
-                    <button class="btn btn-primary btn-blue"><a href="{{ path('article', { id: article.id }) }}">Lire</a></button>
+                        <!-- FOLLOW -->
+                        <div class="follow">
+
+                            <!-- SHARE -->
+                            <i class="fas fa-share-alt"><a href="#"></a></i>
+                
+                        </div>
+            
+                    </div>
+
                 </div>
-        
-                <div class="card-footer">
-                    <small class="text-muted">{{ article.view }} vues | {{ article.view }} </small>
+
+                <!-- TEXTE -->
+                <div class="texte_actualite">
+
+                    <div class="row pb-2 titre_description">
+                
+                        <h4>Porte ouverte de l'atelier</h4>
+
+                        <p class="pt-1 pb-3">Venez découvrir mon atelier et participer (...)</p>
+
+                        <span>Samedi 16 janvier 2021 de 9h à 19h | Emotion'elles, 28 rue Dode à VOIRON</span>
+                    
+                    </div>
+                
                 </div>
-        
+            
+            </div>
+            
+            <!-- ACTUALITE 2 : PETIT BLOC 2 -->
+            <div class="col actualites petit_bloc2">
+            
+                <!-- IMAGE -->
+                <div class="image_actualite">
+                    
+                    <!-- MORE -->
+                    <div class="bloc_more">
+                
+                        <div class="more">
+                        
+                            <p></p>
+                        
+                        </div>
+
+                        <!-- FOLLOW -->
+                        <div class="follow">
+
+                            <!-- SHARE -->
+                            <i class="fas fa-share-alt"><a href="#"></a></i>
+                
+                        </div>
+            
+                    </div>
+
+                </div>
+
+                <!-- TEXTE -->
+                <div class="texte_actualite">
+
+                    <div class="row pb-2 titre_description">
+                
+                        <h4>Porte ouverte de l'atelier</h4>
+
+                        <p class="pt-1 pb-3">Venez découvrir mon atelier et participer (...)</p>
+
+                        <span>Samedi 16 janvier 2021 de 9h à 19h | Emotion'elles, 28 rue Dode à VOIRON</span>
+                    
+                    </div>
+                
+                </div>
+            
             </div>
 
-            {% endfor %}
-            <!-- fin de la boucle -->
+            <!-- ACTUALITE 3 : GRAND BLOC -->
+            <div class="col-6 actualites grand_bloc">
+            
+                <!-- IMAGE -->
+                <div class="image_actualite">
+                    
+                    <!-- MORE -->
+                    <div class="bloc_more">
+                
+                        <div class="more">
+                        
+                            <p></p>
+                        
+                        </div>
 
-        </div> #}
+                        <!-- FOLLOW -->
+                        <div class="follow">
 
+                            <!-- SHARE -->
+                            <i class="fas fa-share-alt"><a href="#"></a></i>
+                
+                        </div>
+            
+                    </div>
+
+                </div>
+
+                <!-- TEXTE -->
+                <div class="texte_actualite">
+
+                    <div class="row pb-2 titre_description">
+                
+                        <h4>Porte ouverte de l'atelier</h4>
+
+                        <p class="pb-3 pt-1">Venez découvrir mon atelier et participer à une démonstration de réfection de chaises anciennes.</p>
+
+                        <span>Samedi 16 janvier 2021 de 9h à 19h | Emotion'elles, 28 rue Dode à VOIRON</span>
+                    
+                    </div>
+                
+                </div>
+            
+            </div>
+        
+        </div>
+
+        <div class="btn_redirection_realisations">
+        
+            <!-- BOUTON LIEN PAGE REALISATIONS -->
+            <button class="btn_redirection">
+                <a href="{{ path('actualite') }}">découvrir toutes nos actualités&nbsp;<i class="fas fa-arrow-right"></i></a>
+            </button>
+        
+        </div>
+    
+    </section>
+
+    <!-- SECTION 5 : AVIS -->
+    <section class="container-fluid row section_avis">
+    
+        <div class="col-sm-4 p-0 img_section_avis"></div>
+
+        <div class="col-sm-8 m-O titre_avis">
+
+            <!-- TITRE -->
+            <div class="row titre_actualites">
+            
+                <h2 class="bleu_clair">Avis</h2>
+                
+                <img class="apostrophe_petite" src="{{ asset('images/apostrophe_petite_bleu_clair.png')}}" alt="Petite apostrophe"/>
+                
+                <h3>Ils nous ont fait confiance !</h3>
+
+            </div>
+
+            <!-- TOUT LES AVIS -->
+            <div class="flex-column avis_clients">
+            
+                <div class="row">
+                    <!-- AVIS 1 -->
+                    <div class="col-sm avis avis_1">
+
+                        <h4>Lucile Laporte</h4>
+
+                        <p>Nous avons commandé à Emotion'elles un décor textile pour notre mariage, elle a su apporter de la magie à ce moment inoubliable.</p>
+
+                        <br/>
+
+                        <span>le 20/01/2020</span>
+                        
+                        <div class="row etoiles">
+                        
+                            <i class="far fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        
+                        </div>
+
+                    </div>
+
+                    <!-- AVIS 2 -->
+                    <div class="col-sm avis avis_2">
+
+                        <h4>Mikael Willem</h4>
+
+                        <p>Johanna a su redonner une seconde vie au fauteuil de mon grand-père, grâce à elle je pense chaque jour à lui et je me remémore nos souvenirs.</p>
+
+                        <br/>
+
+                        <span>le 03/02/2020</span>
+                        
+                        <div class="row etoiles">
+                        
+                            <i class="far fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        
+                        </div>
+
+                    </div>
+
+                    <!-- AVIS 3 -->
+                    <div class="col-sm avis avis_3">
+
+                        <h4>Léa Salomé</h4>
+
+                        <p>Nouvelle maison, nous rideau ! Emotion'elles a su habiller notre intérieur et lui offrir une convivialité sans nulle pareil. Nous sommes ravie de notre cocon.</p>
+
+                        <br/>
+
+                        <span>le 03/03/2020</span>
+                        
+                        <div class="row etoiles">
+                        
+                            <i class="far fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        
+                        </div>
+
+                    </div>
+
+                </div> 
+
+                <div class="col-sm btn_avis">
+            
+                    <!-- BOUTON LIEN PAGE REALISATIONS -->
+                    <button class="btn_redirection">
+                        <a href="{{ path('realisations') }}">lire les avis de nos clients&nbsp;&nbsp;<i class="fas fa-arrow-right"></i></a>
+                    </button>
+            
+                </div>
+            
+            </div>
+        
+        </div>
+    
     </section>
 
 {% endblock %}

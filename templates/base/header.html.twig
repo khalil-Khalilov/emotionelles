@@ -1,9 +1,9 @@
 <header class="container-fluid">
     
-    <nav class="navbar mt-3 navbar-expand-lg stroke">
+    <nav class="navbar mt-5 mb-5 p-0 navbar-expand-lg stroke fill">
 
         <!-- LOGO -->
-        <a class="navbar-brand logo" href="#">Emotion'elles</a>
+        <a class="navbar-brand bleu_clair logo" href="#">emotion'<span class="bleu_fonce logo">elles</a>
     
         <!-- MENU BURGER -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -13,7 +13,7 @@
         </button>
     
         <!-- MENU -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
     
             <!-- NAVIGATION -->
             <ul class="navbar-nav menu">
@@ -23,7 +23,7 @@
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">A propos</a>
+                    <a class="nav-link" href="#">À propos</a>
                 </li>
                 
                 <li class="nav-item">
@@ -39,7 +39,7 @@
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path ('contact') }}">Contact</a>
+                    <a class="nav-link" href="{{ path('contact') }}">Contact</a>
                 </li>
             
             </ul>
@@ -52,15 +52,15 @@
             <ul class="navbar-nav mr-auto">
                 
                 {# <li class="nav-item">
-                    <a class="nav-link" href="{{ path('moncompte') }}">Mon compte</a>
+                    <a class="nav-link btn_menu btn_moncompte" href="{{ path('moncompte') }}">Mon compte</a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('deconnexion') }}">Déconnexion</a>
+                    <a class="nav-link btn_menu btn_deconnexion" href="{{ path('deconnexion') }}">Déconnexion</a>
                 </li> #}
 
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Connexion</a>
+                    <a class="nav-link btn_menu btn_connexion" href="#">Connexion</a>
                 </li>
             
             </ul>

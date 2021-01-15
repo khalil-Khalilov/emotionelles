@@ -1,38 +1,63 @@
-<footer class="container-fluid m-0 text-center text-lg-start">
+<footer class="container justify-content-center">
+    
+    <!-- LIGNE 1 : COORDONNEES NEWSLETTER HORAIRES -->
+    <div class="row justify-content-between mt-5 mb-5 coordonnees_news_horaires">
+    
+        <!-- NOUS TROUVER -->
+        <div class="trouver">
+        
+            <h5>Nous trouver&nbsp;<i class="fas fa-map-marker-alt"></i></h5>
+            <p>28 rue Dode à Voiron
+            <br/>tél.&nbsp;<a href="tel:0300000000">03 00 00 00 00</a></p>
+        
+        </div>
 
-    <div class="container p-4">
+        <!-- NEWSLETTER -->
+        <div class="newsletter">
+        
+            <h5>Newsletter</h5>
 
-        <!-- COORDONNÉES -->
-        <div class="d-flex align-items-center flex-column text-center">
-
-            <p><i class="fas fa-home"></i>&nbsp;&nbsp;28 rue Dode 38500 VOIRON</p>
-            <a href="tel:0457237462"><i class="fas fa-phone"></i>&nbsp;04 57 23 74 62</a>
-            <br/>
-            <p>
-                <i class="far fa-calendar-alt"></i>
-                &nbsp;&nbsp;Lundi au Vendredi de 9h à 19h<br/>
-                Samedi matin sur rendez-vous<br/>
-            </p>
-
-            <!-- NEWSLETTER -->
+            <!-- FORMULAIRE NEWSLETTER -->
             <form action="" method="GET">
-
-                <h5>Newsletter</h5>
-
-                <p>Vous souhaitez être informé ? Inscrivez vous à notre newsletter !</p>
             
-                <input type="text" placeholder="Votre email" class="text"/>
-                <button class="btn btn-primary" type='submit'>M'inscrire</button>
-
+                <input type="email" class="email" placeholder="Votre email"/>
+                <button type="submit">Valider</button>
+            
             </form>
 
+            <!-- BOUTON LIEN PAGE RESERVATION RENDEZ-VOUS -->
+            <button class="btn_redirection">
+                <a href="{{ path('contact') }}">contactez-nous&nbsp;&nbsp;<i class="fas fa-arrow-right"></i></a>
+            </button>
+        
+        </div>
+        
+        <!-- NOS HORAIRES -->
+        <div class="horaires">
+        
+            <h5><i class="fas fa-calendar-alt"></i>&nbsp;Nos horaires</h5>
+            <p>Du lundi au vendredi<br/>de 9h00 à 19h00</p>
+        
+        </div>
+
+    
+    </div>
+
+    <!-- LIGNE 2 : POLITIQUE, MENTION, FOLLOW -->
+    <div class="row mentions_politiques_follow">
+
+        <div class="row justify-content-between align-items-center mentions_politiques">
+            <!-- LIENS POLITIQUE, MENTIONS, COPYRIGHT -->
+            <a href="#">Politique de confidentialité</a>
+            <a href="#">Mentions légales</a>
+            <a href="#">© Copyright - Emotion'elles</a>
         </div>
 
         <!-- FOLLOW -->
-        <div class="mt-5">
+        <div class="row justify-content-end follow">
 
             <!-- FACEBOOK -->
-            <a href="https://www.facebook.com/emotion.elles/" target="_blank"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.facebook.com/emotion.elles/" target="_blank"><i class="fab fa-facebook-square"></i></a>
             
             <!-- INSTAGRAM -->
             <a class="ml-4 mr-4"href="https://www.instagram.com/emotion.elles/" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -41,7 +66,7 @@
             <a href="https://www.linkedin.com/company/emotion-elles/" target="_blank"><i class="fab fa-linkedin"></i></a>
         
         </div>
-
+    
     </div>
 
 </footer>
