@@ -1,0 +1,298 @@
+.row, p {
+    margin: 0!important;
+}
+
+/* SECTION 1 : INTRODUCTION */
+
+.introduction {
+    height: 550px;
+}
+
+.element_intro {
+    position: relative;
+}
+
+.bloc_gris {
+    position: absolute;
+    width: 280px;
+    height: 350px;
+    background: #EFEDED;
+    top: 28%;
+    left: 47%;
+    z-index: -100;
+}
+
+.titre_introduction {
+    padding-bottom: 3rem!important;
+}
+
+.presentation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin-left: 3rem;
+}
+
+.bloc_texte {
+    background-color: #FAFAFA;
+    padding: 3rem;
+}
+
+.bloc_texte p {
+    padding: 0.8rem 0
+}
+
+
+.titre_description span {
+    font-size: 0.8rem;
+}
+
+.element_intro {
+    height: 100%;
+    width: 100%;
+}
+
+.img_intro {
+    background-image: url('images/img_intro.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+/* SECTION 2 :REALISATIONS */
+
+.image_realisation, .image_actualite {
+    height: 250px;
+    background-image: url('images/fauteuil_01.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 0.2rem;
+}
+
+.realisations .follow, .actualites .follow {
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+}
+
+.realisations .follow .fas, .realisations .follow .far, .actualites .follow .fas {
+    padding: 0 0.5rem;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.grand_bloc, .realisations .petit_bloc2, .actualites .petit_bloc1 {
+    padding: 0;
+}
+
+.bloc_more {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.more {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 75%;
+}
+
+.realisations .petit_bloc1, .actualites .petit_bloc2 {
+    padding: 0 1rem;
+}
+
+.petit_bloc1 .more, .petit_bloc2 .more {
+    height: 63%;
+}
+
+.more:hover p::before {
+    content:'en savoir plus';
+}
+
+
+.grand_bloc .image_realisation, .grand_bloc .image_actualite {
+    height: 280px;
+}
+
+.texte_realisations, .texte_actualite {
+    padding-top: 1rem;
+}
+
+.prix {
+    font-weight: bold;
+}
+
+.prix_btn_acheter {
+    background-color: #FAFAFA;
+    padding: 0.5rem;
+    justify-content: center;
+}
+
+.btn_acheter {
+    border: none;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center;
+}
+
+.prix_btn_acheter a:hover{
+    text-decoration: none;
+}
+
+.btn_redirection_realisations, .btn_redirection_actualites {
+    padding-right: 1rem;
+    padding-top: 3rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* SECTION 3 : PROJET PERSONNALISE */
+
+.categories_produits {
+    height: 200px;
+}
+
+.bloc_categorie {
+    height: 100%;
+    border-radius: 0.2rem;
+    background-color: rgba(255, 255, 255, 0.208);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-size: 1.9rem;
+    font-weight: 500;
+}
+
+.categorie, .titre_personnalise {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.categorie:hover, .more:hover, .titre_personnalise {
+    background-image: url('images/apostrophe_grande.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+.titre_personnalise {
+    background-position-y: 85px;
+}
+
+.bloc_categorie p, .more p {
+    color: white;
+    font-size: 1.9rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.bloc_categorie .follow {
+    position: relative;
+    z-index: 100;
+}
+
+.follow:hover {
+    cursor: pointer;
+}
+
+.bloc_categorie:hover, .lien_projet_personnalise:hover, .image_realisation:hover, .image_actualite:hover {
+    box-shadow: 8px 5px 5px rgba(128, 128, 128, 0.31);
+}
+
+.rideau {
+    background-image: url('images/rideau_01.jpg');
+    margin-right: 0.5rem;
+}
+
+.tapisserie {
+    background-image: url('images/fauteuil_07.jpg');
+}
+
+.creation {
+    background-image: url('images/creation_02.jpg');
+}
+
+.decor {
+    background-image: url('images/fauteuil_09.jpg');
+    margin-left: 0.5rem;
+}
+
+.tapisserie, .creation {
+    margin: 0 0.5rem;
+}
+
+.lien_projet_personnalise {
+    background-image: url('images/fauteuil_03.jpg');
+    height: 350px;
+    width: 100%;
+    background-size: cover;
+    background-position-y: -300px;
+    background-repeat: no-repeat;
+    border-radius: 0.2rem;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.lien_projet_personnalise h3, .lien_projet_personnalise h4, .lien_projet_personnalise .btn_redirection a, .lien_projet_personnalise .btn_redirection i {
+    color: white;
+}
+
+.lien_projet_personnalise h4 {
+    font-weight: 300;
+}
+
+/* SECTION 5 : AVIS */
+
+.img_section_avis {
+    background-image: url('images/fauteuil_01.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.titre_avis {
+    padding: 3rem 0rem 3rem 5rem;
+}
+
+.avis {
+    background-color: #FAFAFA;
+    padding: 3rem;
+}
+
+.avis h2 {
+    font-size: 3rem;
+}
+
+.avis span {
+    font-size: 0.8rem;
+}
+
+.avis_2 {
+    margin: 0 1.5rem 0 1.5rem;
+}
+
+.btn_avis {
+    margin-top: 2rem;
+    margin-left: 0;
+    padding: 0;
+}
+
+.etoiles {
+    padding-top: 1.5rem;
+}

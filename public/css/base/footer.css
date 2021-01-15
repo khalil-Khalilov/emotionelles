@@ -1,0 +1,80 @@
+footer {
+    margin-top: 6rem!important;
+}
+
+.row {
+    margin: 0!important;
+}
+
+.coordonnees_news_horaires {
+    width:100%;
+}
+
+.trouver h5, .horaires h5 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.trouver, .horaires {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width:16%;
+}
+
+.horaires {
+    text-align: right;
+}
+
+.newsletter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 65%;
+    justify-content: space-between;
+}
+
+.newsletter h5 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin: 1rem 0 0 0;
+} 
+
+.newsletter form {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 1rem 0rem 2rem 0rem;
+}
+
+.email {
+    width: 55%;
+    padding: 8px;
+    padding-left: 20px;
+    border: none;
+    background-color: #f1f1f1;
+    border-radius: 0.2rem 0 0 0.2rem;
+}
+
+.newsletter form button {
+    width: 20%;
+    border: none;
+    background-color: #0E7483;
+    border-radius: 0rem 0.2rem 0.2rem 0rem;
+    color: white;
+}
+
+.mentions_politiques_follow {
+    width: 100%;
+    margin: 3rem 0 !important;
+}
+
+.mentions_politiques {
+    width: 60%;
+    font-size: 0.9rem;
+}
+
+.follow {
+    width: 40%;
+    font-size: 1.5rem;
+}
