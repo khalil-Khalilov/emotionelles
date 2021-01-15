@@ -48,21 +48,21 @@
         
         <!-- MON COMPTE / CONNEXION / DECONNEXION -->
         <div>
-            
+            {#le lien acces_compte est la route cree dans la basecontroller .elle donne acces a un tableau de bord utilisateur ou admin#}
             <ul class="navbar-nav mr-auto">
-                
-                {# <li class="nav-item">
-                    <a class="nav-link" href="{{ path('moncompte') }}">Mon compte</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ path('deconnexion') }}">Déconnexion</a>
-                </li> #}
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Connexion</a>
-                </li>
-            
+                {% if app.user %} 
+                    <li class="nav-item">
+                          <a class="nav-link" href="{{ path('acces_compte') }}">Mon compte<span class="sr-only">(current)</span></a>
+                    </li>
+                    {# SI L'utilisateur est connecté on affiche un lien de deconnexion#}
+                    <li class="nav-item">
+                            <a class="nav-link" href="{{ path('app_logout') }}">Déconnexion</a>
+                    {% else %}
+                    {# Sinon s'il n'est pas connecté on affiche un lien de connexion#}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ path('app_login') }}">Connexion</a>
+                    </li>
+                {% endif %}
             </ul>
     
         </div>

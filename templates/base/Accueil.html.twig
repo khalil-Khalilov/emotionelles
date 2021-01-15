@@ -3,7 +3,17 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
+    {#Permet d'afficher le type de connexion a l'utilisateur#} 
+    
+  {#  {% if is_granted('ROLE_USER') %}
+        Vous êtes connecté entant que membre
+        {% else %}
+            Vous n'êtes pas membre. inscrivez-vous
+    {% endif % }#}
 
+
+
+            {#{{ dump(app.user) }}#}
     <section class="jumbotron d-flex align-items-center text-center mb-5 introduction">
         
         <div class="container">
