@@ -24,6 +24,7 @@ class ActualiteController extends AbstractController
         ]);
     }
 
+
     /**
      * @Route("/actualite/{id}", name="actualite", requirements={"id":"\d+"})
     */
@@ -38,7 +39,7 @@ class ActualiteController extends AbstractController
     }
 
     /**
-     * @Route("/actualite/back", name="actualiteBack")
+     * @Route("admin/back", name="actualiteBack")
     */
     public function actualiteBack(Request $request): Response
     {
@@ -67,5 +68,51 @@ class ActualiteController extends AbstractController
             "form" => $form->createView(),
             "actualite" => $actualite,
         ]);
+    }
+
+    /**
+     * @Route("admin/modifier/{id}", name="modifier", requirements={"id":"\d+"})
+    */
+    public function modifier(Request $request, ActualiteRepository $actualiteRepository, $id): Response
+    {
+
+        $actualite = $actualiteRepository->find($id);
+
+        $form = $this->createForm(ActualiteType::class, $actualite);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted()){
+            if($form->isValid()){
+
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($actualite);
+                $em->flush();
+                
+                $this->addFlash('success', "L'article a bien été modifié.");
+                return $this->redirectToRoute('actualites');
+            }else {
+                $this->addFlash('danger', "Le formulaire comporte des erreurs.");
+            }
+        }
+
+        return $this->render('actualite/modifier.html.twig', [
+            "form" => $form->createView(),
+            "actualite" => $actualite,
+        ]);
+    }
+
+    /**
+     * @Route("/admin/supprimer/{id}", name="supprimer")
+    */
+    public function deleteBlogArticle(Actualite $actualite)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($actualite);
+        $em->flush();
+
+        $this->addFlash('success', "L'article a bien été supprimé.");
+        return $this->redirectToRoute('actualites');
     }
 }

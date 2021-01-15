@@ -1,11 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ActualiteController!{% endblock %}
+{% block title %}Page administrateur{% endblock %}
 
 {% block body %}
 
 <div class="container">
-
+    <div>
+        <a href="{{ path('actualiteBack') }}">Crée un article</a>
+    </div>
+    
+    
     <div class="row">
 
         {% for actualite in actualites %}
@@ -18,6 +22,7 @@
                     <div class="small">Publié le {{ actualite.date|date('d/m/Y') }}</div>
                     <p class="card-text">{{ actualite.description|slice(0,100) }}</p>
                     <a href="{{ path('actualite', {id:actualite.id}) }}" class="btn btn-primary">Lire</a>
+                    <a href="{{ path('modifier', { id: actualite.id }) }}" class="btn btn-outline-info">Modifier</a>
                 </div>
 
             </div>
@@ -29,10 +34,5 @@
     </div>
 
 </div>
-
-    
-   
-
        
 {% endblock %}
-
