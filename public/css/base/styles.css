@@ -3,4 +3,93 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Raleway', sans-serif;
+    color: #0E7483;
 } 
+
+img {
+    width: 20px;
+    height: 20px;
+}
+
+h2 {
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 2rem;
+    padding-top: 0.9rem;
+}
+
+h4 {
+    font-size: 1.3rem;
+}
+
+p {
+    font-size: 0.9rem;
+}
+
+.apostrophe_petite {
+    width: 25px;
+    height: 18px;
+    padding: 0 0.3rem;
+}
+
+/* COULEURS */
+    
+    .bleu_clair {
+        color: #78DEDE;
+    }
+
+    a, .bleu_fonce {
+        color: #0E7483;
+    }
+
+/* BOUTONS REDIRECTION PAGE */
+
+.btn_redirection {
+    border: none;
+    background-color: transparent;
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    -webkit-animation-iteration-count: infinite;
+}
+
+.btn_redirection a {
+    color: #0E7483;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.btn_redirection a:hover {
+    text-decoration: none;
+}
+
+.btn_redirection:hover {
+    cursor: pointer;
+    animation-name: bounce;
+    -moz-animation-name: bounce;
+}
+
+@keyframes bounce {
+    0%, 100%, 20%, 50%, 80% {
+     -webkit-transform: translateX(0);
+     -ms-transform:     translateX(0);
+     transform:         translateX(0)
+    }
+    40% {
+     -webkit-transform: translateX(-30px);
+     -ms-transform:     translateX(-30px);
+     transform:         translateX(-30px)
+    }
+    60% {
+     -webkit-transform: translateX(-15px);
+     -ms-transform:     translateX(-15px);
+     transform:         translateX(-15px)
+    }
+}
