@@ -62,4 +62,4 @@ class EmailService
         }
     }
 
-    //nous allons crée un dossier dans template appelez email pour le HtmlTemplate
+    //nous allons crée un dossier dans template appelé email pour le HtmlTemplate
