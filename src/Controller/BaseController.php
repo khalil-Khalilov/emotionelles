@@ -43,6 +43,7 @@ class BaseController extends AbstractController
      */
     public function accesCompte(): Response
     {
+           // dd($this->getUser());
         if($this->isGranted('ROLE_ADMIN')) {
             return $this->redirectToRoute('page_admin');
 
