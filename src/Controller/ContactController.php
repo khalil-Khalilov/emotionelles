@@ -14,34 +14,28 @@ class ContactController extends AbstractController
      * @Route("/contact", name="contact")
      */
     public function contact(EmailService $emailService, Request $request): Response
-
     {  
         //dd($request);
         $method = $request->getMethod();
-       
-        
-        
         
         if ($request->isMethod('POST')){
             
-       
             $nom = $request->request->get('nom');
             $prenom = $request->request->get('prenom');
             $numero = $request->request->get('numero');
             $email = $request->request->get('email');
-         $message = $request->request->get('message');
-           // dd('POST'); permet de recuperer le mail+le message envoyé et verifier la methode utilise.
-          //dd($request->request->all());
+            $message = $request->request->get('message');
+            // dd('POST'); permet de recuperer le mail + le message envoyé et verifier la méthode utilisée
+            // dd($request->request->all());
         
-
-          //cette function sera transmise et traitée dans le document/fichier service.
+        //cette function sera transmise et traitée dans le document/fichier service.
        
-    //une variable $emailService en forme de tableau transmet les informations à Emailservice
+        //une variable $emailService en forme de tableau transmet les informations à Emailservice
         $emailService->send([
             
             'replyTo' => $email,
             'message' => $message,
-            'subject' => "Emotionnelles-Vous avez un message",
+            'subject' => "Vous avez un message - Emotion'elles",
             'template' => 'email/contact.email.twig',
             'context' => [
                 'nom'=> $nom,
@@ -50,13 +44,16 @@ class ContactController extends AbstractController
                 'mail'=> $email,
                 'message'=> $message
             ]
-        // nous pouvons rajouter des lignes supplémentaire si besoin dans le tableau
+
+            // nous pouvons rajouter des lignes supplémentaire si besoin dans le tableau
+        
         ]); 
 
-        #mail de confirmation client
+        // Email de confirmation client
         $emailService->send([
+
             'to' => $email,
-            'subject' => "Nous avons bien reçu votre message",
+            'subject' => "Nous avons bien reçu votre message - Emotion'elles",
             'template' => 'email/contact_confirmation.email.twig',
             'context' => [
                 'nom'=> $nom,
@@ -68,18 +65,11 @@ class ContactController extends AbstractController
             
         ]);
 
-
-        //message flash pour signifier que le message a été envoyé.
+            //message flash pour signifier que le message a été envoyé.
             $this->addFlash('success', "Nous avons bien reçu votre message.") ; 
             return $this->redirectToRoute('contact');
         }
-      
-       
     
-      
-
-        return $this->render('contact/contact.html.twig', [
-            
-        ]);
+        return $this->render('contact/contact.html.twig', []);
     }
 }

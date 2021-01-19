@@ -1,25 +1,25 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ActualiteController!{% endblock %}
+{% block title %}{{ actualite.titre }}{% endblock %}
 
 {% block body %}
 
     <div>
+    
         <a href="{{ path('actualites') }}">Retour à la liste</a>
+    
     </div>
 
-   
+    <img src="{{ asset('actualite.image')}}" alt="Image de l'actualité"/>
 
-        <h1>{{ actualite.titre }}</h1>
+    <h1>{{ actualite.titre }}</h1>
 
-        <div class="mb-5">
+    <div class="mb-5">
 
-            Publié le {{ actualite.date|date('d/m/Y') }}
-        </div>
-
-        <p>{{ actualite.description|nl2br }}</p>
+        Publié le {{ actualite.date|date('d/m/Y') }}
     
-   
+    </div>
 
-       
+    <p>{{ actualite.description|nl2br }}</p>
+    
 {% endblock %}

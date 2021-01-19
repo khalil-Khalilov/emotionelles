@@ -12,6 +12,7 @@ use Doctrine\Persistence\ManagerRegistry;
  * @method Actualite[]    findAll()
  * @method Actualite[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
+
 class ActualiteRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
