@@ -38,7 +38,7 @@ class RealisationsController extends AbstractController
     }
 
     /**
-     * @Route("/realisations/back", name="realisationsBack")
+     * @Route("realisations/realisationBack", name="realisationsBack")
      */
     public function realisationBack(Request $request): Response 
     {
@@ -71,6 +71,53 @@ class RealisationsController extends AbstractController
             "form" => $form->createView(),
             "realisation" => $realisation,
         ]);
+    }
+
+
+    /**
+     * @Route("realisation/modifier/{id}", name="realisationmodifier", requirements={"id":"\d+"})
+    */
+    public function modifier(Request $request, RealisationsRepository $realisationRepository, $id): Response
+    {
+
+        $realisation = $realisationRepository->find($id);
+
+        $form = $this->createForm(RealisationsType::class, $realisation);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted()){
+            if($form->isValid()){
+
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($realisation);
+                $em->flush();
+                
+                $this->addFlash('success', "La réalisation a bien été modifié.");
+                return $this->redirectToRoute('realisations');
+            }else {
+                $this->addFlash('danger', "Le formulaire comporte des erreurs.");
+            }
+        }
+
+        return $this->render('realisations/realisationmodifier.html.twig', [
+            "form" => $form->createView(),
+            "realisation" => $realisation,
+        ]);
+    }
+
+    /**
+     * @Route("/realisation/supprimer/{id}", name="supprimer")
+    */
+    public function deleteBlogRealisation(Realisations $realisation)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($realisation);
+        $em->flush();
+
+        $this->addFlash('success', "La réalisation a bien été supprimé.");
+        return $this->redirectToRoute('realisations');
     }
 
 }

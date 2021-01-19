@@ -1,21 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Modifier une actualité{% endblock %}
-
-
+{% block title %}Modifier une réalisation{% endblock %}
 
 {% block body %}
 
     {{form_start(form)}}
         {{form_widget(form)}}
 
-            <a href="{{ path('supprimer', { id:actualite.id }) }}" class="btn btn-outline-danger">Supprimer</a>
+            <a href="{{ path('supprimer', { id:realisation.id }) }}" class="btn btn-outline-danger">Supprimer</a>
             <button type="submit" class="btn btn-primary">Valider</button>    
-            
 
     {{form_end(form)}}
 
 {% endblock %}
-
-
-
