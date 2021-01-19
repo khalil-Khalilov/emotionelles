@@ -3,7 +3,7 @@
     <nav class="navbar mt-5 mb-5 p-0 navbar-expand-lg stroke fill">
 
         <!-- LOGO -->
-        <a class="navbar-brand bleu_clair logo" href="#">emotion'<span class="bleu_fonce logo">elles</a>
+        <a class="navbar-brand bleu_clair logo" href="{{ path('accueil')}}">emotion'<span class="bleu_fonce logo">elles</a>
     
         <!-- MENU BURGER -->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,14 +59,16 @@
                     <li class="nav-item">
                         <a class="nav-link btn_menu btn_deconnexion" href="{{ path('app_logout') }}">Déconnexion</a>
                     </li> 
-                {% else %}
+
+            {% else %}
+
                     <li class="nav-item">
-                        <a class="nav-link btn_menu btn_connexion" href="{{ path('app_login') }}">Connexion</a>
+                        <a data-toggle="modal" data-target="#loginModal" class="nav-link btn_menu btn_connexion" href="{{ path('app_login') }}">Connexion</a>
                     </li>
             
             {% endif %}
    
-             </ul>
+            </ul>
     
         </div>
 

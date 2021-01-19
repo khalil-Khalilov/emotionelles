@@ -1,0 +1,31 @@
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+  
+  <!-- POP-UP -->
+  <div class="modal-dialog popup" role="document">
+    
+    <div class="modal-content">
+      
+      <!-- HEADER -->
+      <div class="modal-header align-items-center pt-3 pb-0 pl-5 pr-5">
+        
+        <!-- BOUTON CLOSE -->
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            
+            <span aria-hidden="true">&times;</span>
+        
+        </button>
+        
+      </div>
+      
+      <!-- FORMULAIRE -->
+      <div class="modal-body d-flex flex-row justify-content-around mb-4 p-3">
+        
+        {% include 'security/loginform.html.twig' %}
+      
+      </div>
+    
+    </div>
+  
+  </div>
+
+</div>

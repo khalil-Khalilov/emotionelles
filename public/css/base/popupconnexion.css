@@ -1,0 +1,48 @@
+.popup {
+    max-width: 750px;
+    margin: 7rem auto;
+}
+
+.modal-content {
+    border: none;
+    border-radius: 0.2rem;
+}
+
+.modal-header {
+    border: none;
+}
+
+.modal-title {
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.close span {
+    font-size: 2.5rem;
+    font-weight: 200;
+}
+
+.img_popup {
+    background-image: url('images/img_intro.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 45%;
+    height: 400px;
+}
+
+.deja_inscrit {
+    width: 45%;
+}
+
+#inputEmail, #inputPassword, input[type=checkbox] {
+    border: none;
+    border-radius: 0.2rem;
+    background-color: #f1f1f1;
+}
+
+.s_inscrire p {
+    font-size: 1.1rem;
+}
