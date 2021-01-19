@@ -1,0 +1,48 @@
+<!-- IMAGE GAUCHE POP UP -->
+<div class="img_popup"></div>
+
+<!-- FORMULAIRE DE CONNEXION -->
+<div class="deja_inscrit d-flex flex-column justify-content-center">
+    
+    <h4>Déjà inscrit ? Connectez-vous !</h4>
+
+    <form action="{{ path('app_login')}}" method="post">
+
+        <!-- EMAIL -->
+        <label for="inputEmail" class="mt-2">Votre email</label>
+        <input type="email" name="email" id="inputEmail" class="form-control" required autofocus/>
+        
+        <!-- MOT DE PASSE -->
+        <label for="inputPassword" class="mt-2">Votre mot de passe</label>
+        <input type="password" name="password" id="inputPassword" class="form-control" required/>
+
+        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+        <!-- SE SOUVENIR DE MOI --> 
+        <div class="checkbox mt-3 mb-3 d-flex align-items-center justify-content-between">
+
+            <button class="btn btn_menu btn_connexion" type="submit">Me connecter</button>
+
+            <div class="row align-items-center justify-content-end">
+                <label class="m-0 pr-2">se souvenir de moi</label>
+                <input type="checkbox" name="_remember_me" id="remember"/>
+            </div>
+        
+        </div>
+
+    </form>
+
+    <hr class="mt-4 mb-4">
+
+    <!-- S'INSCRIRE --> 
+    <div class="row d-flex align-items-center justify-content-between s_inscrire">
+    
+        <p>Pas encore inscrit !?&nbsp;&nbsp;</p>
+        
+        <button class="btn_redirection">
+            <a href="{{ path('app_register') }}">s'inscrire&nbsp;&nbsp;<i class="fas fa-arrow-right"></i></a>
+        </button>
+
+</div>
+
+    

@@ -118,23 +118,3 @@ nav.fill ul li a:hover:after {
 
 /* lien source header : https://codepen.io/maheshambure21/pen/QwXaRw */
 
-/* CONNEXION DECONNEXION MONCOMPTE */
-
-.btn_menu {
-    color: white;
-    font-weight: 500;
-    border-radius: 0.2rem;
-}
-
-.btn_connexion{
-    background-color: #0E7483;
-}
-
-.btn_deconnexion{
-    background-color: #048C8C;
-}
-
-.btn_moncompte{
-    background-color: #78DEDE;
-    color: grey;
-}

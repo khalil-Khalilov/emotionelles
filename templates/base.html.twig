@@ -42,6 +42,9 @@
 
             <!-- MON CSS | STYLES -->
             <link rel="stylesheet" href="{{ asset('css/base/styles.css') }}">
+
+            <!-- MON CSS | POP UP -->
+            <link rel="stylesheet" href="{{ asset('css/base/popupconnexion.css') }}">
             
         {% endblock %}
 
@@ -63,6 +66,9 @@
 
         <!-- FOOTER -->
         {% include 'base/footer.html.twig' %}
+
+        <!-- POP UP -->
+        {% include 'base/popupconnexion.html.twig' %}
         
     
         {% block javascripts %}
