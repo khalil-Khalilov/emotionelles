@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page administrateur{% endblock %}
+
+{% block body %}
+
+<div class="container">
+   
+    <div class="row">
+  {% for reservations in reservation %}
+
+        <div class="col-lg-4">
+            <div class="card">
+
+                <div class="card-body">
+                 
+                          <p>{{ reservations.motif }}</p>
+                  
+                </div>
+
+            </div>
+        </div>
+
+ {% endfor %}
+    
+    </div>
+
+</div>
+       
+{% endblock %}
