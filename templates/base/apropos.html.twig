@@ -1,0 +1,106 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}À propos{% endblock %}
+
+{% block body %}
+
+<section class="container mb-5 pb-5 apropos">
+
+    <!-- TITRE -->
+    <div class="row d-flex justify-content-center pb-4 titre_apropos">
+
+        <h2 class="bleu_clair">À propos</h2>
+        
+        <img class="apostrophe_petite" src="{{ asset('images/apostrophe_petite_bleu_clair.png')}}" alt="Apostrophe"/>
+        
+        <h3>Découvrir notre entreprise !</h3>
+
+    </div>
+
+    <div class="container row bloc_img_apropos">
+    
+        <div class="col-sm img_apropos"></div>
+
+        <div class="col-sm img_apropos img_apropos2"></div>
+
+        <div class="col-sm img_apropos"></div>
+    
+    </div>
+
+    <div class="container d-flex-flex-column bloc_texte_apropos">
+    
+        <p class="mb-3">Emotion’elles est une entreprise familiale de tapissiers décorateurs située à Voiron en France. Apportant une grande importance au savoir-faire artisanal, elle redonne vie à d’anciens fauteuils (chinés ou transmis de génération en génération) en les modernisant. Elle confectionne également des rideaux, voilages, stores, parois japonaises, coussins, tableaux textiles.</p>
+
+        <div class="btn_redirection">
+        
+            <!-- BOUTON LIEN PAGE REALISATIONS -->
+            <button class="btn_redirection redirection_apropos">
+                <a href="{{ path('realisations') }}">découvrir toutes  nos réalisations&nbsp;<i class="fas fa-arrow-right"></i></a>
+            </button>
+        
+        </div>
+
+    </div>
+
+</section>
+
+<section class="container-fluid pt-5 carrousel_apropos">
+
+    <div id="carrousel" class="container">
+        
+        <ul>
+            <li><img class="image1" src="{{ asset('images/fauteuil_03.png')}}"/></li>
+            <li><img class="image2" src="{{ asset('images/fauteuil_03.png')}}"/></li>
+            <li><img class="image3" src="{{ asset('images/fauteuil_03.png')}}"/></li>
+            <li><img class="image4" src="{{ asset('images/fauteuil_03.png')}}"/></li>
+        </ul>
+    
+    </div>
+
+    <div class="bloc_gris bloc_gris_apropos"></div>
+
+</section>
+
+<section class="container mt-5 pt-5 equipe">
+
+    <div class="d-flex flex-column align-items-center titre_equipe">
+                
+        <h2>Notre équipe</h2>
+
+    </div>
+
+    <div class="mt-5 membres">
+    
+        <div class="row d-flex align-items-center justify-content-center membre1">
+        
+            <div class="col-4 img_membre1"></div>
+        
+            <div class="col-4 ml-5 p-0 titre_texte">
+            
+                <h4>Evelyne, la maman</h4>
+
+                <p>Tapissière depuis 20ans, elle a appris sur le terrain en étroite collaboration avec des professionnels de la Région. Adepte du savoir-faire traditionnelle, elle aime le mêler à des techniques nouvelles.</p>
+
+            </div>
+
+        </div>
+
+        <div class="row d-flex align-items-center justify-content-center membre2">
+        
+            <div class="col-4 d-flex flex-column justify-content-end mr-5 p-0 titre_texte2">
+            
+                <h4>Johanna, la fille</h4>
+
+                <p>Elle a suivi une formation en CAP Tapisserie d'ameublement en décor suivi d'un BAC professionnel tapisserie d'ameublement et a terminé par un Diplôme des Métiers d'Art Art de l'habitat option Tapisserie d'ameublement.</p>
+
+            </div>
+
+            <div class="col-4 img_membre2"></div>
+
+        </div>
+    
+    </div>
+
+</section>
+
+{% endblock %}
