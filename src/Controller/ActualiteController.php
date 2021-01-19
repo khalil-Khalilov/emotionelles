@@ -20,7 +20,7 @@ class ActualiteController extends AbstractController
         $actualites = $actualiteRepository->findAll();
 
         return $this->render('actualite/actualites.html.twig', [
-            "actualites"=>$actualites,
+            "actualites" => $actualites,
         ]);
     }
 
@@ -30,7 +30,6 @@ class ActualiteController extends AbstractController
     */
     public function actualite(ActualiteRepository $actualiteRepository, $id): Response
     {
-
         $actualite = $actualiteRepository->find($id);
 
         return $this->render('actualite/actualite.html.twig', [
@@ -51,6 +50,7 @@ class ActualiteController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted()){
+            
             if($form->isValid()){
 
                 $em = $this->getDoctrine()->getManager();
@@ -58,8 +58,11 @@ class ActualiteController extends AbstractController
                 $em->flush();
                 
                 $this->addFlash('success', "L'article a bien été enregistré.");
+                
                 return $this->redirectToRoute('actualites');
-            }else {
+            }
+            else 
+            {
                 $this->addFlash('danger', "Le formulaire comporte des erreurs.");
             }
         }

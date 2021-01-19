@@ -17,6 +17,7 @@ class ReservationController extends AbstractController
     /**
      * @Route("/reservation", name="reservation")
      */
+
     public function contact(EmailService $emailService, Request $request, ReservationRepository $reservationRepository): Response
     {         
        
@@ -89,3 +90,5 @@ class ReservationController extends AbstractController
             }
 
         }
+
+ 
