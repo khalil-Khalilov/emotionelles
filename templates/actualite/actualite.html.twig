@@ -5,9 +5,7 @@
 {% block body %}
 
     <div>
-    
         <a href="{{ path('actualites') }}">Retour à la liste</a>
-    
     </div>
 
     <img src="{{ asset('actualite.image')}}" alt="Image de l'actualité"/>
@@ -15,11 +13,48 @@
     <h1>{{ actualite.titre }}</h1>
 
     <div class="mb-5">
-
         Publié le {{ actualite.date|date('d/m/Y') }}
-    
     </div>
 
     <p>{{ actualite.description|nl2br }}</p>
+
+    <br>
+
+
+    {{form_start(form)}}
+
+        {{form_widget(form)}}
+
+        <button type="submit" class="btn btn-primary">Valider</button>    
+
+    {{form_end(form)}}
+
+    <div class="container">
+
+        <div class="row">
+
+            {% for comment in actualite.comments %}
+
+                <div class="col-lg-4">
+                    
+                    <div class="card">
+
+                        <div class="card-body">
+                            <h5 class="small">Publié le {{ actualite.date|date('d/m/Y') }} par Admin</h5>
+                            
+                            <h5>Titre: {{ actualite.titre }}</h5 >  
+                            
+                            <p>Comment: {{ comment.comment }}</p>
+                        
+                        </div>
+
+                    </div>
+                
+                </div>
+
+            {% endfor %}
     
+        </div>
+
+    </div>
 {% endblock %}
