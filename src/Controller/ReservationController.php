@@ -20,12 +20,6 @@ class ReservationController extends AbstractController
 
     public function contact(EmailService $emailService, Request $request, ReservationRepository $reservationRepository): Response
     {         
-       
-           
-              
-        
-            
-
                 $reservation = new Reservation();
                 $form = $this->createForm(ReservationType::class, $reservation);
                 $form->handleRequest($request);
@@ -90,5 +84,3 @@ class ReservationController extends AbstractController
             }
 
         }
-
- 
