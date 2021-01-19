@@ -23,7 +23,7 @@
 
                     <div class="card-body">
                     
-                        <img class="card-img-top" src="{{ actualite.image }}" alt="{{ actualite.description}}"/>
+                        <img class="card-img-top" src="{{ actualite.image }}" alt="Image"/>
                         <h5 class="card-title">{{ actualite.titre }}</h5>
                         <div class="small">Publié le {{ actualite.date|date('d/m/Y') }}</div>
                         <p class="card-text">{{ actualite.description|slice(0,100) }}</p>

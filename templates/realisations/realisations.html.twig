@@ -23,7 +23,7 @@
 
                     <div class="card-body">
                     
-                        <img class="card-img-top" src="{{ realisation.image }}" alt="{{ realisation.description}}"/>
+                        <img class="card-img-top" src="{{ realisation.image }}" alt="Image"/>
                         <h5 class="card-title">{{ realisation.titre }}</h5>
                         <div class="small">Publié le {{ realisation.date|date('d/m/Y') }}</div>
                         <p class="card-text">{{ realisation.description|slice(0,100) }}</p>
