@@ -51,11 +51,12 @@ class EmailService
             ->replyTo($data['replyTo'] ?? $this->adminEmail)
             //->priority(Email::PRIORITY_HIGH)
             ->subject($subject)
+            
              // path of the Twig template to render
              ->htmlTemplate($data['template'])
             // pass variables (name => value) to the template
             ->context($data['context'] ?? []);
-        
+            
           
         $this->mailer->send($email);
         return true;

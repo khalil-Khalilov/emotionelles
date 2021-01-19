@@ -41,7 +41,8 @@ class Reservation
      * @ORM\Column(type="datetime")
      */
     private $date_reservation;
-
+    
+    
     /**
      * @ORM\Column(type="string", length=255)
      */
@@ -105,12 +106,16 @@ class Reservation
         return $this->date_reservation;
     }
 
-    public function setDateReservation(\DateTimeInterface $date_reservation): self
+
+ public function setDateReservation(\DateTimeInterface $date_reservation): self
     {
         $this->date_reservation = $date_reservation;
 
         return $this;
     }
+
+  
+
 
     public function getMotif(): ?string
     {

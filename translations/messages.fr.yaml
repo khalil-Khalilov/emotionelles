@@ -8,10 +8,17 @@ email:
   contact:
     subject: Demande de contact
     titre: Vous avez reçu un message
-    text: Bonjour, vous avez reçu un message de la part de...   
+    texte: Bonjour, vous avez reçu un message de la part de...   
   Enregistrement:
     subject: Valdidez votre inscription
 
+page:
+  reservation:
+    subject: Demande de rendez-vous
+      titre: Vous avez recu un message
+      Texte: Bonjour ,vous avez reçu un message de la part de ...
+
+  
 
 
 
