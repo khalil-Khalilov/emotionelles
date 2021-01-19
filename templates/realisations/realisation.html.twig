@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ realisation.titre }}{% endblock %}
+
+{% block body %}
+
+    <div>
+    
+        <a href="{{ path('realisations') }}">Retour à la liste</a>
+    
+    </div>
+
+    <img src="{{ asset('realisation.image')}}" alt="Image de la réalisation"/>
+
+    <h1>{{ realisation.titre }}</h1>
+
+    <div class="mb-5">
+
+        Publié le {{ realisation.date|date('d/m/Y') }}
+    
+    </div>
+
+    <p>{{ realisation.description|nl2br }}</p>
+    
+{% endblock %}

@@ -35,13 +35,15 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            //dd($user);
+            // dd($user);
             // encode the plain password
             $user->setPassword(
+                
                 $passwordEncoder->encodePassword(
                     $user,
                     $form->get('plainPassword')->getData()
                 )
+
             );
 
             $entityManager = $this->getDoctrine()->getManager();
@@ -56,7 +58,7 @@ class RegistrationController extends AbstractController
                 $request,
                 $authenticator,
                 'main' // firewall name in security.yaml
-              );
+            );
         }  
 
         return $this->render('registration/inscription.html.twig', [

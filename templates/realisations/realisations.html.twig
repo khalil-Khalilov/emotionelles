@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes réalisations{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        
+        <div>
+        
+            <a href="{{ path('realisationsBack') }}">Gérer mes réalisations</a>
+        
+        </div>
+    
+    
+        <div class="row">
+
+            {% for realisation in realisations %}
+
+            <div class="col-lg-4">
+                
+                <div class="card">
+
+                    <div class="card-body">
+                    
+                        <h5 class="card-title">{{ realisation.titre }}</h5>
+                        <div class="small">Publié le {{ realisation.date|date('d/m/Y') }}</div>
+                        <p class="card-text">{{ realisation.description|slice(0,100) }}</p>
+                        <a href="{{ path('realisation', {id:realisation.id}) }}" class="btn btn-primary">Lire</a>
+                    
+                    </div>
+
+                </div>
+            
+            </div>
+
+            {% endfor %}
+    
+        </div>
+
+    </div>
+       
+{% endblock %}
+
+
