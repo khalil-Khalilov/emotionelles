@@ -25,7 +25,6 @@ class BaseController extends AbstractController
         return $this->render('base/apropos.html.twig');
     }
     
-
     ///////////////////////////////////////////////////////////////////
 
     public function header(): Response

@@ -42,9 +42,9 @@ class RealisationsController extends AbstractController
      */
     public function realisationBack(Request $request): Response 
     {
-        $realisation = new RealisationsType();
+        $realisation = new Realisations();
 
-        $form = $this->createForm(RealisationType::class, $realisation);
+        $form = $this->createForm(RealisationsType::class, $realisation);
 
         $form->handleRequest($request);
 
@@ -67,7 +67,7 @@ class RealisationsController extends AbstractController
             }
         }
 
-        return $this->render('realisation/realisationsBack.html.twig', [
+        return $this->render('realisations/realisationsBack.html.twig', [
             "form" => $form->createView(),
             "realisation" => $realisation,
         ]);
