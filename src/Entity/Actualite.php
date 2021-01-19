@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ActualiteRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -46,6 +48,16 @@ class Actualite
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $facebookEvent;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="actualite")
+     */
+    private $comments;
+
+    public function __construct()
+    {
+        $this->comments = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -120,6 +132,36 @@ class Actualite
     public function setFacebookEvent(?string $facebookEvent): self
     {
         $this->facebookEvent = $facebookEvent;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Comment[]
+     */
+    public function getComments(): Collection
+    {
+        return $this->comments;
+    }
+
+    public function addComment(Comment $comment): self
+    {
+        if (!$this->comments->contains($comment)) {
+            $this->comments[] = $comment;
+            $comment->setActualite($this);
+        }
+
+        return $this;
+    }
+
+    public function removeComment(Comment $comment): self
+    {
+        if ($this->comments->removeElement($comment)) {
+            // set the owning side to null (unless already changed)
+            if ($comment->getActualite() === $this) {
+                $comment->setActualite(null);
+            }
+        }
 
         return $this;
     }
