@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Entity\Reservation;
+use DateTime;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
@@ -17,6 +18,14 @@ class ReservationRepository extends ServiceEntityRepository
     public function __construct(ManagerRegistry $registry)
     {
         parent::__construct($registry, Reservation::class);
+    }
+
+    public function isdateFree(DateTime $date): bool
+    {
+        $reservations = $this->findBy([
+            "date_reservation" => $date
+        ]);
+        return empty($reservations);
     }
 
     // /**
