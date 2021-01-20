@@ -117,9 +117,8 @@
     content:'en savoir plus';
 }
 
-
 .grand_bloc .image_realisation, .grand_bloc .image_actualite {
-    height: 280px;
+    height: 270px;
 }
 
 .texte_realisations, .texte_actualite {

@@ -1,0 +1,109 @@
+.apropos {
+    position: relative;
+}
+
+.bloc_img_apropos {
+    width: 100%;
+    height: 350px;
+    border-radius: 0.2rem;
+}
+
+.img_apropos {
+    background-image: url('images/fauteuil_01.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.img_apropos2 {
+    margin: 0 1.5rem;
+}
+
+.bloc_texte_apropos {
+    width: 600px;
+    background-color: #FAFAFA;
+    padding: 2.5rem;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    border-radius: 0.2rem;
+}
+
+.carrousel_apropos {
+    position:relative;
+}
+
+#carrousel {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    margin: auto;
+    border-radius: 0.2rem;
+}
+
+#carrousel ul li {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    list-style-type: none;
+}
+
+ul li img {
+    width: 100%;
+    height: 100%;
+}
+
+.controls {
+    width: 100%;
+    height: 100%;
+    z-index : 100;
+    display: flex;
+    padding: 0 50px;
+}
+
+.next, .prev {
+    width: 50%;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 2rem;
+}
+
+.next:hover, .prev:hover {
+    cursor:pointer;
+}
+
+.prev .fas, .next .fas {
+    color: white;
+}
+
+.prev {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.bloc_gris_apropos {
+    width: 130%;
+    left: -15%;
+}
+
+.titre_equipe {
+    background-image: url(images/apostrophe_grande_bleu_clair.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.img_membre1, .img_membre2 {
+    background-image: url('images/a-propos.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 250px;
+    border-radius: 0.2rem;
+}
+
+.titre_texte2 {
+    text-align: right;
+}
