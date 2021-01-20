@@ -1,10 +1,11 @@
 {# se dossier est en relation avec le htmlTemplate qui se trouve dans le dossier SERVICE et le fichier EmailService.php#}
 {#Nous pouvons faire du html dans ce dossier d'envoi de message. #}
-{% extends "email/base.email.twig" %}
+{% extends "email/base.reservation.email.twig" %}
 
 {% block body %}
-
+<div class="message" style:"font-size:30px;">
 Vous avez un message de </b> {{ reservation.nom }}
+</div>
 <br><br>
 
  <b>CONTENU DU MESSAGE: <br></b>{{ reservation.motif }}

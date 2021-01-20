@@ -32,7 +32,7 @@ class PageadminController extends AbstractController
 
 
         return $this->render('pageadmin/listereservation.html.twig', [
-            "reservation"=>$reservations,
+            "reservations"=>$reservations,
         ]);
         
     }

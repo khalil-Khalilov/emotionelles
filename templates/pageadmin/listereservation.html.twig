@@ -1,30 +1,35 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Page administrateur{% endblock %}
+{% block title %}Page administrateur
+{% endblock %}
 
 {% block body %}
 
-<div class="container">
-   
-    <div class="row">
-  {% for reservations in reservation %}
+	<div class="container">
 
-        <div class="col-lg-4">
-            <div class="card">
+		<div class="row">
+			{% for reservation in reservations %}
 
-                <div class="card-body">
-                 
-                          <p>{{ reservations.motif }}</p>
-                  
-                </div>
 
-            </div>
-        </div>
+				<div class="col-lg-4">
+					<div class="card">
 
- {% endfor %}
-    
-    </div>
+						<div class="card-body">
+                        {# regle par Vw#}
+                            <p>{{ reservation.dateReservation|date('d/m/Y ,H') }} h </p>
+							<p>{{reservation.nom}} {{reservation.prenom}}</p>
+							<br>
+							<p>{{ reservation.motif}}</p>
+							<br>
+							
+						</div>
 
-</div>
-       
+
+					</div>
+				</div>
+
+			{% endfor %}
+
+		</div>
+	</div>
 {% endblock %}

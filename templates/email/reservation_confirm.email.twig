@@ -1,5 +1,26 @@
-{# se dossier est en relation avec le htmlTemplate qui se trouve dans le dossier SERVICE et le fichier EmailService.php#}
+ {# se dossier est en relation avec le htmlTemplate qui se trouve dans le dossier SERVICE et le fichier EmailService.php#}
 {#Nous pouvons faire du html dans ce dossier d'envoi de message. cela permet d'editer des messages de confirmation d'envoi et de reception de mail #}
-Bonjour {{ reservation.nom }} {{ reservation.prenom }}
-Nous accusons bonne réception de votre message.
-Notre service client vous contacteras tres rapidement.
+
+<header>
+ emotionnelles
+   
+</header>
+
+{% block body %}{% endblock %}
+   
+<div class="container" style="color: green; font-size: 30px;">
+    <p>Bonjour {{ reservation.nom }} {{ reservation.prenom }}</p>
+    <p>Nous accusons bonne réception de votre message. Notre service client vous contacteras tres rapidement.</p>
+</div>
+
+    <div class="google">
+   {# <a href="https://goo.gl/maps/mG6FibQugRa3bM8cA" target="_blank">
+    <img src="{{ asset('images/localisation.jpg') }}"</a>#}
+   
+
+    </div> 
+  
+<footer 
+   <hr>
+ 
+</footer>
