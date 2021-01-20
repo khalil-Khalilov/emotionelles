@@ -7,6 +7,7 @@ use App\Entity\Comment;
 use App\Form\ActualiteType;
 use App\Form\CommentType;
 use App\Repository\ActualiteRepository;
+use App\Repository\CommentRepository;
 use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -59,13 +60,13 @@ class ActualiteController extends AbstractController
                 $em->persist($comment);
                 $em->flush();
                 
-                $this->addFlash('success', "ok.");
+                $this->addFlash('success', "Comment is add.");
 
                 return $this->redirectToRoute('actualite',["id"=>$actualite->getId()]);
             }
             else 
             {
-                $this->addFlash('danger', "PAS OK.");
+                $this->addFlash('danger', "Comment not add.");
             }
         }
 
@@ -114,9 +115,9 @@ class ActualiteController extends AbstractController
     
 
     /**
-     * @Route("admin/modifier/{id}", name="modifier", requirements={"id":"\d+"})
+     * @Route("admin/modifierActualite/{id}", name="modifierActualite", requirements={"id":"\d+"})
     */
-    public function modifier(Request $request, ActualiteRepository $actualiteRepository, $id): Response
+    public function modifierActualite(Request $request, ActualiteRepository $actualiteRepository, $id): Response
     {
 
         $actualite = $actualiteRepository->find($id);
@@ -139,16 +140,16 @@ class ActualiteController extends AbstractController
             }
         }
 
-        return $this->render('actualite/modifier.html.twig', [
+        return $this->render('actualite/modifierActualite.html.twig', [
             "form" => $form->createView(),
             "actualite" => $actualite,
         ]);
     }
 
     /**
-     * @Route("/admin/supprimer/{id}", name="supprimerActualite")
+     * @Route("/admin/supprimerActualite/{id}", name="supprimerActualite")
     */
-    public function deleteBlogArticle(Actualite $actualite)
+    public function deleteActualite(Actualite $actualite)
     {
 
         $em = $this->getDoctrine()->getManager();
@@ -157,5 +158,60 @@ class ActualiteController extends AbstractController
 
         $this->addFlash('success', "L'article a bien été supprimé.");
         return $this->redirectToRoute('actualites');
+    }
+
+    /////////////////////////////////////////////////////////////////////////
+
+    /**
+     * @Route("/modifierCommentaire/{id}", name="modifierCommentaire", requirements={"id":"\d+"})
+    */
+    public function modifierCommentaire(ActualiteRepository $actualiteRepository, Request $request, CommentRepository $commentRepository, $id): Response
+    {
+
+        $comment = $commentRepository->find($id);
+
+        $actualite = $actualiteRepository->find($id);
+
+        $form = $this->createForm(CommentType::class, $comment);
+
+        $form->handleRequest($request);
+
+        if($form->isSubmitted()){
+            if($form->isValid()){
+
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($comment);
+                $em->flush();
+                
+                $this->addFlash('success', "Le commentaire a bien été modifié.");
+
+                // return $this->redirectToRoute('actualite',["id"=>$actualite->getId()]);
+                return $this->redirectToRoute('actualites');
+            }else {
+                $this->addFlash('danger', "Le formulaire comporte des erreurs.");
+            }
+        }
+
+        return $this->render('actualite/modifierCommentaire.html.twig', [
+            "form" => $form->createView(),
+            "comment" => $comment,
+        ]);
+    }
+
+    /**
+     * @Route("supprimerCommentaire/{id}", name="supprimerCommentaire")
+    */
+    public function deleteCommentaire(ActualiteRepository $actualiteRepository, Comment $comment, $id)
+    {
+        $actualite = $actualiteRepository->find($id);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($comment);
+        $em->flush();
+
+        $this->addFlash('success', "Le commentaire a bien été supprimé.");
+
+        return $this->redirectToRoute('actualites');
+        // return $this->redirectToRoute('actualite',["id"=>$actualite->getId()]);
     }
 }
