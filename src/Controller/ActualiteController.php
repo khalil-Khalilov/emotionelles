@@ -33,10 +33,12 @@ class ActualiteController extends AbstractController
     */
     public function actualite(Request $request, ActualiteRepository $actualiteRepository, $id): Response
     {
+
+        
         $actualite = $actualiteRepository->find($id);
 
         $comment = new Comment;
-
+        
         $form = $this->createForm(CommentType::class, $comment);
 
         $form->handleRequest($request);
@@ -59,7 +61,7 @@ class ActualiteController extends AbstractController
                 
                 $this->addFlash('success', "ok.");
 
-                return $this->redirectToRoute('/actualite/{id}');
+                return $this->redirectToRoute('actualite',["id"=>$actualite->getId()]);
             }
             else 
             {
@@ -144,7 +146,7 @@ class ActualiteController extends AbstractController
     }
 
     /**
-     * @Route("/admin/supprimer/{id}", name="supprimer")
+     * @Route("/admin/supprimer/{id}", name="supprimerActualite")
     */
     public function deleteBlogArticle(Actualite $actualite)
     {

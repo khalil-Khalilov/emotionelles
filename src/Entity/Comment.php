@@ -37,6 +37,16 @@ class Comment
      */
     private $actualite;
 
+    public function getUserName(): ?string
+    {
+        if($this->getUser()){
+            return $this->getUser()->getPreNom();
+        }
+        else{
+            return "Utulisateur supprimé";
+        }
+    }
+
     public function getId(): ?int
     {
         return $this->id;

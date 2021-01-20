@@ -50,7 +50,7 @@ class Actualite
     private $facebookEvent;
 
     /**
-     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="actualite")
+     * @ORM\OneToMany(targetEntity=Comment::class, mappedBy="actualite", cascade={"remove"})
      */
     private $comments;
 

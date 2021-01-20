@@ -4,11 +4,15 @@
 
 {% block body %}
 
+
+    {# Btn pour voir la liste des actualites #}
     <div>
         <a href="{{ path('actualites') }}">Retour à la liste</a>
     </div>
 
-    <img src="{{ asset('actualite.image')}}" alt="Image de l'actualité"/>
+
+    {# Affichage d'actualite #}
+    <img src="{{ actualite.image }}" alt="Image de l'actualité"/>
 
     <h1>{{ actualite.titre }}</h1>
 
@@ -20,15 +24,23 @@
 
     <br>
 
+{# Verification SI user est connecter #}
+{% if is_granted('ROLE_USER') %}
 
+    {# Formulaire de commentaire #}
     {{form_start(form)}}
 
         {{form_widget(form)}}
-
-        <button type="submit" class="btn btn-primary">Valider</button>    
-
+                <button type="submit" class="btn btn-primary">Valider</button>
     {{form_end(form)}}
 
+    {% else %}
+        <a data-toggle="modal" data-target="#loginModal" class="nav-link btn_menu btn_connexion" 
+            href="{{ path('app_login') }}">Connectez-vous pour commenter les articles</a>
+{% endif %}
+
+
+{# Affichage de commentaire #}
     <div class="container">
 
         <div class="row">
@@ -40,12 +52,10 @@
                     <div class="card">
 
                         <div class="card-body">
-                            <h5 class="small">Publié le {{ actualite.date|date('d/m/Y') }} par Admin</h5>
-                            
-                            <h5>Titre: {{ actualite.titre }}</h5 >  
-                            
-                            <p>Comment: {{ comment.comment }}</p>
-                        
+                            <h5 class="small">Publié le {{ actualite.date|date('d/m/Y') }} par {{comment.userName}}</h5>
+                            <i class="fas fa-trash-alt" title="Supprimer"></i>
+                            <i class="fas fa-tools" title="Modifier"></i>
+                            <p>{{ comment.comment }}</p>
                         </div>
 
                     </div>

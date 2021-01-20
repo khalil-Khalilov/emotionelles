@@ -107,7 +107,7 @@ class RealisationsController extends AbstractController
     }
 
     /**
-     * @Route("/realisation/supprimer/{id}", name="supprimer")
+     * @Route("/realisation/supprimer/{id}", name="supprimerRealisation")
     */
     public function deleteBlogRealisation(Realisations $realisation)
     {
