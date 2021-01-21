@@ -8,6 +8,8 @@ use App\Form\ActualiteType;
 use App\Form\CommentType;
 use App\Repository\ActualiteRepository;
 use App\Repository\CommentRepository;
+use App\Repository\NewsletterContactRepository;
+use App\Service\EmailService;
 use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -80,7 +82,7 @@ class ActualiteController extends AbstractController
     /**
      * @Route("admin/back", name="actualiteBack")
     */
-    public function actualiteBack(Request $request): Response
+    public function actualiteBack(EmailService $emailService ,NewsletterContactRepository $newsletterContactRepository, Request $request): Response
     {
 
         $actualite = new Actualite();
@@ -93,11 +95,32 @@ class ActualiteController extends AbstractController
             
             if($form->isValid()){
 
+                $new = $actualite->getId() === NULL;
+
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($actualite);
                 $em->flush();
                 
                 $this->addFlash('success', "L'article a bien été crée.");
+
+                if($new){
+
+                    $contacts = $newsletterContactRepository->findAll();
+
+                    foreach($contacts as $contact){
+
+                        $emailService->send([
+
+                            'to' => $contact->getMail(),
+                            'subject' => "Nouvelle actualité - Emotion'elles",
+                            'template' => 'email/newsletter_actualite.email.twig',
+                            'context' => [
+                                "actualite" => $actualite
+                            ]
+                            
+                        ]);
+                    }
+                }
                 
                 return $this->redirectToRoute('actualites');
             }
@@ -106,6 +129,8 @@ class ActualiteController extends AbstractController
                 $this->addFlash('danger', "Le formulaire comporte des erreurs.");
             }
         }
+
+
 
         return $this->render('actualite/actualiteBack.html.twig', [
             "form" => $form->createView(),

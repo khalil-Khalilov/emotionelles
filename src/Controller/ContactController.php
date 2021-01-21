@@ -28,21 +28,21 @@ class ContactController extends AbstractController
             // dd('POST'); permet de recuperer le mail + le message envoyé et verifier la méthode utilisée
             // dd($request->request->all());
         
-        //cette function sera transmise et traitée dans le document/fichier service.
+            //cette function sera transmise et traitée dans le document/fichier service.
        
-        //une variable $emailService en forme de tableau transmet les informations à Emailservice
-        $emailService->send([
+            //une variable $emailService en forme de tableau transmet les informations à Emailservice
+            $emailService->send([
             
-            'replyTo' => $email,
-            'message' => $message,
-            'subject' => "Vous avez un message - Emotion'elles",
-            'template' => 'email/contact.email.twig',
-            'context' => [
-                'nom'=> $nom,
-                'prenom'=> $prenom,
-                'numero'=> $numero,
-                'mail'=> $email,
-                'message'=> $message
+                'replyTo' => $email,
+                'message' => $message,
+                'subject' => "Vous avez un message - Emotion'elles",
+                'template' => 'email/contact.email.twig',
+                'context' => [
+                    'nom'=> $nom,
+                    'prenom'=> $prenom,
+                    'numero'=> $numero,
+                    'mail'=> $email,
+                    'message'=> $message
             ]
 
             // nous pouvons rajouter des lignes supplémentaire si besoin dans le tableau
