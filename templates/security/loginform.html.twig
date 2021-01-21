@@ -15,6 +15,7 @@
         <!-- MOT DE PASSE -->
         <label for="inputPassword" class="mt-2">Votre mot de passe</label>
         <input type="password" name="password" id="inputPassword" class="form-control" required/>
+        <a class="mt-2" href="{{ path('motdepasse_oublie') }}">Mot de passe oublié</a>
 
         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
@@ -43,7 +44,8 @@
         <button class="btn_redirection">
             <a href="{{ path('app_register') }}">s'inscrire&nbsp;&nbsp;<i class="fas fa-arrow-right"></i></a>
         </button>
-            <a href="{{ path('motdepasse_oublie') }}">Mot de passe oublié</a>
+    
+    </div>
 
 </div>
 

@@ -1,13 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} | Emotionelles{% endblock %}
+{% block title %}Reservation {% endblock %}
 
 {% block body %}
 
     {{form_start(form)}}
+        
         {{form_widget(form)}}
-            <button type="submit" class="btn btn-primary">Valider</button>
-
+        
+        <button type="submit" class="btn btn-primary">Valider</button>
 
     {{form_end(form)}}
+
 {% endblock %}
