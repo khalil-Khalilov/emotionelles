@@ -12,14 +12,8 @@
 
     <img src="{{ asset('realisation.image')}}" alt="Image de la réalisation"/>
 
-    <h1>{{ realisation.titre }}</h1>
+    <h1>{{ realisation.nomProduit }}</h1>
 
-    <div class="mb-5">
-
-        Publié le {{ realisation.date|date('d/m/Y') }}
-    
-    </div>
-
-    <p>{{ realisation.description|nl2br }}</p>
+    <p>{{ realisation.caracteristique|nl2br }}</p>
     
 {% endblock %}

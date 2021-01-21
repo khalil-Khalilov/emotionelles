@@ -19,6 +19,15 @@ class RealisationsRepository extends ServiceEntityRepository
         parent::__construct($registry, Realisations::class);
     }
 
+    public function findLastRealisations(int $limit)
+    {
+        return $this->findBy(
+            [],
+            ["id"=> 'DESC'],
+            $limit
+        );
+    }
+
     // /**
     //  * @return Produits[] Returns an array of Produits objects
     //  */

@@ -19,9 +19,9 @@ class RealisationsController extends AbstractController
     public function realisations(RealisationsRepository $realisationsRepository): Response
     {
         $realisations = $realisationsRepository->findAll();
-        
+
         return $this->render('realisations/realisations.html.twig', [
-            "realisations" => $realisations,
+            "realisations" => $realisations
         ]);
     }
 
@@ -33,7 +33,7 @@ class RealisationsController extends AbstractController
         $realisation = $realisationsRepository->find($id);
         
         return $this->render('realisations/realisation.html.twig',[
-            "realisation" => $realisation,
+            "realisation" => $realisation
         ]);
     }
 

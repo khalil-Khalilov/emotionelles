@@ -16,10 +16,12 @@ class EmailService
     Private $adminEmail;
     Private $env;
     private $translator;
+    private $DOMAIN_NAME;
 
-    public function __construct(MailerInterface $mailer, $adminEmail, $env, TranslatorInterface $translator)
+    public function __construct($DOMAIN_NAME, MailerInterface $mailer, $adminEmail, $env, TranslatorInterface $translator)
     {//est notre classe d'email service
         $this->mailer = $mailer;   
+        $this->DOMAIN_NAME = $DOMAIN_NAME; 
         $this->adminEmail = $adminEmail;
         $this->env = $env;
         $this->translator = $translator;
@@ -39,6 +41,9 @@ class EmailService
             $subject = $this->translator->trans($data['subject']);
         }
 
+        $context = $data['context'] ?? [];
+        $context ['DOMAIN_NAME'] = $this->DOMAIN_NAME;
+
         //dd('admin email : '.$this->adminEmail);
        // dd($_ENV['ADMIN_EMAIL']);to
         //dd($data);
@@ -55,7 +60,7 @@ class EmailService
              // path of the Twig template to render
              ->htmlTemplate($data['template'])
             // pass variables (name => value) to the template
-            ->context($data['context'] ?? []);
+            ->context($context);
             
           
         $this->mailer->send($email);

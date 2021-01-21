@@ -18,9 +18,9 @@
             <h5>Newsletter</h5>
 
             <!-- FORMULAIRE NEWSLETTER -->
-            <form action="" method="GET">
+            <form action="{{path('newsletter_subscribe')}}" method="POST">
             
-                <input type="email" class="email" placeholder="Votre email"/>
+                <input type="email" name="mail" class="email" placeholder="Votre email"/>
                 <button type="submit">Valider</button>
             
             </form>

@@ -6,6 +6,8 @@
 parameters:
     ADMIN_EMAIL: '%env(ADMIN_EMAIL)%'
     APP_ENV: '%env(APP_ENV)%'
+    DOMAIN_NAME: '%env(DOMAIN_NAME)%'
+    
    
 services:
     # default configuration for services in *this* file
@@ -36,5 +38,5 @@ services:
         arguments:
             $adminEmail: '%ADMIN_EMAIL%' 
             $env: '%APP_ENV%'
-
+            $DOMAIN_NAME: '%DOMAIN_NAME%'
     

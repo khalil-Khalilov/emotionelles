@@ -23,7 +23,7 @@
                     <div class="small">Publié le {{ actualite.date|date('d/m/Y') }}</div>
                     <p class="card-text">{{ actualite.description|slice(0,100) }}</p>
                     <a href="{{ path('actualite', {id:actualite.id}) }}" class="btn btn-primary">Lire</a>
-                    <a href="{{ path('modifier', { id: actualite.id }) }}" class="btn btn-outline-info">Modifier</a>
+                    <a href="{{ path('modifierActualite', { id: actualite.id }) }}" class="btn btn-outline-info">Modifier</a>
                 </div>
 
             </div>

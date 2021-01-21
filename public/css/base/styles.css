@@ -102,7 +102,7 @@ p {
     border-radius: 0.2rem;
 }
 
-.btn_connexion{
+.btn_connexion, .btn_bleu {
     background-color: #0E7483;
 }
 
@@ -112,5 +112,5 @@ p {
 
 .btn_moncompte{
     background-color: #78DEDE;
-    color: grey;
+    color: white;
 }
