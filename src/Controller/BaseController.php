@@ -38,7 +38,7 @@ class BaseController extends AbstractController
         return $this->render('base/apropos.html.twig');
     
     }
-    
+
     // PARTIE HEADER
 
     public function header(): Response
@@ -55,7 +55,7 @@ class BaseController extends AbstractController
      */
     public function accesCompte(): Response
     {
-        # Nous créons une nouvelles route pour la session d'accès aux rôles (Administatuer / utilisateur). Elle permet de renvoyer le type d'utilisateur vers son espace correspondant si l'accès est authentifié au rôle admin dans ce cas, nous le renvoyons vers l'espace admin. Aussi si le rôle utilisateur est authentifié il sera redirigé vers l'accueil #
+        # Nous créons une nouvelles route pour la session d'accès aux rôles (Administateur / utilisateur). Elle permet de renvoyer le type d'utilisateur vers son espace correspondant si l'accès est authentifié au rôle admin dans ce cas, nous le renvoyons vers l'espace admin. Aussi si le rôle utilisateur est authentifié il sera redirigé vers l'accueil #
 
         if($this->isGranted('ROLE_ADMIN')) 
         {
