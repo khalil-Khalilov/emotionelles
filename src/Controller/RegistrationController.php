@@ -35,35 +35,53 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // dd($user);
-            // encode the plain password
             $user->setPassword(
-                
                 $passwordEncoder->encodePassword(
                     $user,
                     $form->get('plainPassword')->getData()
                 )
-
             );
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
             $entityManager->flush();
 
-             // @TODO Change the redirect on success and handle or remove the flash message in your templates
-             $this->addFlash('success', 'Vous êtes connecté entant que membre');
+            //generate un lien url envoyé a l'utilisateur
+            $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
+                (new TemplatedEmail())
+                    ->from(new Address('valordebene@gmail.com', 'emotionelles'))
+                    ->to ($this->getParameter('ADMIN_EMAIL'))//($user->getEmail())
+                    ->subject('Confirmez votre email')
+                    ->htmlTemplate('registration/confirmation_email.html.twig')
+           );
 
-            return $guardHandler->authenticateUserAndHandleSuccess(
-                $user,
-                $request,
-                $authenticator,
-                'main' // firewall name in security.yaml
-            );
+             // @TODO Change the redirect on success and handle or remove the flash message in your templates
+             $this->addFlash('success', 'Vous êtes inscrit entant que membre. Merci de confirmer votre lien inscription');
+
+                //FUNCTION POUR SE CONNECTER AUTOMATIQUEMENT:
+            // return $guardHandler->authenticateUserAndHandleSuccess(
+            //     $user,
+            //     $request,
+            //     $authenticator,
+            //     'main' // firewall name in security.yaml
+            // );
         }  
 
         return $this->render('registration/inscription.html.twig', [
             'registrationForm' => $form->createView(),
         ]);
+    }
+    /**
+     * @Route("/verify/email", name="app_verify_email")
+     */ 
+    public function verifyUserEmail(Request $request): Response
+    {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        try{
+            $this->emailVerifier->handleEmailConfirmation($request, $this->getUser());
+        }catch (VerifyEmailExceptionInterface $exception) {
+            $this->addFlash('verify_email_error', $exception->getReason());
+        }
     }
 
     
