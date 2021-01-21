@@ -1,0 +1,8 @@
+{% extends "email/base.email.twig" %}
+
+{% block body %}
+
+Nouvelle actualité publié sur emotionelles - <a href="{{DOMAIN_NAME}}{{path('actualite', {id:actualite.id} )}}">{{actualite.titre}}</a>
+ 
+
+{% endblock %}
