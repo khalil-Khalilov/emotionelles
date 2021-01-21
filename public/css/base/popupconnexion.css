@@ -38,7 +38,7 @@
     width: 45%;
 }
 
-#inputEmail, #inputPassword, input[type=checkbox] {
+#inputEmail, #inputPassword, input[type=checkbox], .input {
     border: none;
     border-radius: 0.2rem;
     background-color: #f1f1f1;

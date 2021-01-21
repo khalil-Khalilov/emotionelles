@@ -4,35 +4,72 @@
 
 {% block body %}
 
-<h1>Contactez-moi</h1>
-<p>Nous répondons à toutes vos demandes</p>
+<div class="modal-body d-flex flex-row justify-content-around mb-4 p-3">
+        
+    <!-- IMAGE GAUCHE POP UP -->
+    <div class="img_popup"></div>
 
-<form class="mt-4" method="POST">
-  <div class="form-group">
-  
+    <!-- FORMULAIRE DE CONTACT -->
+    <div class="deja_inscrit d-flex flex-column justify-content-center">
+        
+        <h4>Une demande particulière? On vous écoute!</h4>
 
- <label for="exampleFormControlInput1">Nom</label>
-    <input type="text" name="firtname" class="form-control" id="exampleFormControlInput1" placeholder="Nom">
-  </div>
+        <form action="" method="POST">
 
-<label for="exampleFormControlInput1">Prenom</label>
-    <input type="text" name="lastname" class="form-control" id="exampleFormControlInput1" placeholder="Prenom">
-  </div>
+           <div class="row pt-2 pb-2">
+               
+              <div class="col-6 p-0">
 
-  <label for="exampleFormControlInput1">numero</label>
-    <input type="text" name="number" class="form-control" id="exampleFormControlInput1" placeholder="Numéro de tel">
-  </div>
+                <!-- NOM -->
+                <label for="firstname" class="mt-2">Votre nom</label>
+                <input type="text" name="firstname" id="firstname" class="form-control input" placeholder="votre nom" required autofocus/>
+              
+              </div>
 
-    <label for="exampleFormControlInput1">Adresse Email</label>
-    <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="emotionelle@emotionnelles.com">
-  </div>
- 
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Votre message</label>
-    <textarea class="form-control" name="message" id="exampleFormControlTextarea1" rows="10"></textarea>
-  </div>
-  <div class="text-right">
-  <button type="submit" class="btn btn-primary">Envoyer</button>
-  </div>
-</form>
+              <div class="col-6 p-0 pl-2">
+
+                <!-- PRENOM -->
+                <label for="lastname" class="mt-2">Votre prenom</label>
+                <input type="text" name="lastname" id="lastname" class="form-control input" placeholder="votre prenom" required autofocus/>
+              
+              </div>
+
+            </div>
+
+            <div class="row pt-2 pb-2">
+               
+              <div class="col-3 p-0">
+
+                <!-- NUMERO DE TELEPHONE -->
+                <label for="registration_form_plainPassword" class="mt-2">Votre numéro</label>
+                <input type="text" name="registration_form_[plainPassword]" id="registration_form_plainPassword" class="form-control input" required placeholder="votre numéro"/>
+              
+              </div>
+
+              <div class="col-9 p-0 pl-2">
+                
+                <!-- EMAIL -->
+                <label for="registration_form_email" class="mt-2">Votre email</label>
+                <input type="email" name="registration_form_[email]" id="registration_form_email" class="form-control input" required placeholder="emotionelle@emotionnelles.com"/>
+
+              </div>
+
+            </div>
+
+            <!-- MESSAGE -->
+            <label for="reservation_motif" class="mt-2">Votre message</label>
+            <textarea rows='3' name="reservation_[motif]" id="reservation_motif" class="form-control input" required placeholder="votre message"></textarea>
+
+            <div class="checkbox mt-3 mb-3 d-flex align-items-center justify-content-between">
+
+                <button class="btn btn_menu btn_connexion" type="submit">M'inscrire</button>
+
+            </div>
+
+        </form>
+    
+    </div>
+
+</div>
+
 {% endblock %}

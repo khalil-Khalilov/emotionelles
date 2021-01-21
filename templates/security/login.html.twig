@@ -40,11 +40,11 @@
 
                 <!-- EMAIL -->
                 <label for="inputEmail" class="mt-2">Votre email</label>
-                <input type="email" name="email" id="inputEmail" class="form-control" required autofocus/>
+                <input type="email" name="email" id="inputEmail" class="form-control input" required autofocus placeholder="votre email"/>
                 
                 <!-- MOT DE PASSE -->
                 <label for="inputPassword" class="mt-2">Votre mot de passe</label>
-                <input type="password" name="password" id="inputPassword" class="form-control" required/>
+                <input type="password" name="password" id="inputPassword" class="form-control input" required placeholder="votre mot de passe"/>
                 <a class="mt-2" href="{{ path('motdepasse_oublie') }}">Mot de passe oublié</a>
 
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
