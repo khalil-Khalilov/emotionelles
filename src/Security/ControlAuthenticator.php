@@ -47,39 +47,47 @@ class ControlAuthenticator extends AbstractFormLoginAuthenticator implements Pas
 
     public function getCredentials(Request $request)
     {
+        
         $credentials = [
             'email' => $request->request->get('email'),
             'password' => $request->request->get('password'),
             'csrf_token' => $request->request->get('_csrf_token'),
         ];
+
         $request->getSession()->set(
             Security::LAST_USERNAME,
             $credentials['email']
         );
 
         return $credentials;
+    
     }
 
     public function getUser($credentials, UserProviderInterface $userProvider)
     {
         $token = new CsrfToken('authenticate', $credentials['csrf_token']);
-        if (!$this->csrfTokenManager->isTokenValid($token)) {
+
+        if (!$this->csrfTokenManager->isTokenValid($token)) 
+        {
             throw new InvalidCsrfTokenException();
         }
 
         $user = $this->entityManager->getRepository(User::class)->findOneBy(['email' => $credentials['email']]);
 
         if (!$user) {
-            // fail authentication with a custom error
-            throw new CustomUserMessageAuthenticationException('Email could not be found.');
+        // fail authentication with a custom error
+            throw new CustomUserMessageAuthenticationException("L'email n'a pas été trouvé.");
         }
 
         return $user;
+    
     }
 
     public function checkCredentials($credentials, UserInterface $user)
     {
+        
         return $this->passwordEncoder->isPasswordValid($user, $credentials['password']);
+    
     }
 
     /**
@@ -87,13 +95,17 @@ class ControlAuthenticator extends AbstractFormLoginAuthenticator implements Pas
      */
     public function getPassword($credentials): ?string
     {
+    
         return $credentials['password'];
+    
     }
 
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, string $providerKey)
     {
         if ($targetPath = $this->getTargetPath($request->getSession(), $providerKey)) {
+        
             return new RedirectResponse($targetPath);
+        
         }
 
        return new RedirectResponse($this->urlGenerator->generate('acces_compte'));
@@ -102,6 +114,8 @@ class ControlAuthenticator extends AbstractFormLoginAuthenticator implements Pas
 
     protected function getLoginUrl()
     {
+    
         return $this->urlGenerator->generate(self::LOGIN_ROUTE);
+    
     }
 }

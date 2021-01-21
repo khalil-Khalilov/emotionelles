@@ -4,18 +4,6 @@
 
 {% block body %}
 
-    {# Permet d'afficher le type de connexion à l'utilisateur #} 
-    
-    {# {% if is_granted('ROLE_USER') %}
-            
-        <p>Vous êtes connecté en tant que membre</p>
-
-    {% else %}
-
-        <p>Vous n'êtes pas membre. <a href="app-register">Inscrivez-vous !</a></p>
-
-    {% endif %} #}
-
     <!-- SECTION 1 : INTRODUCTION -->
     <section class="container introduction">
     
@@ -121,7 +109,7 @@
                     
                         <h4>{{realisation.nomProduit}}</h4>
     
-                        <p class="pt-1 {{ loop.last ? 'pl-2' : ' ' }}">{{realisation.caracteristique|length > 30 ? realisation.caracteristique|slice(0, 30) ~ '...' : realisation.caracteristique}}</p>
+                        <p class="pt-1 {{ loop.first ? 'pl-2' : ' ' }}">{{realisation.caracteristique|length > 30 ? realisation.caracteristique|slice(0, 30) ~ '...' : realisation.caracteristique}}</p>
                     
                     </div>
 
@@ -316,6 +304,7 @@
             <div class="flex-column avis_clients">
             
                 <div class="row">
+                    
                     <!-- AVIS 1 -->
                     <div class="col-sm avis avis_1">
 

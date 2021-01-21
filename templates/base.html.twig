@@ -30,8 +30,6 @@
         <!-- ANIMATION CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-
-
         <!-- STYLE CSS -->
         {% block stylesheets %}
             
@@ -56,9 +54,12 @@
             <!-- MON CSS | POP UP -->
             <link rel="stylesheet" href="{{ asset('css/base/popupconnexion.css') }}">
 
-            <!-- MON CSS | REALISATIONS -->
-            <link rel="stylesheet" href="{{ asset('css/realisations/realisations.css') }}">
+            <!-- MON CSS | REALISATIONS / ACTUALITES -->
+            <link rel="stylesheet" href="{{ asset('css/realisations_actualites/realisations_actualites.css') }}">
             
+            <!-- MON CSS | RESERVATIONS / CONTACT -->
+            <link rel="stylesheet" href="{{ asset('css/reservations_contact/reservations_contact.css') }}">
+
         {% endblock %}
 
     </head>
@@ -83,7 +84,6 @@
         <!-- POP UP -->
         {% include 'base/popupconnexion.html.twig' %}
         
-    
         {% block javascripts %}
         
             <!-- BOOTSTRAP JQUERY -->

@@ -39,12 +39,17 @@ class Comment
 
     public function getUserName(): ?string
     {
-        if($this->getUser()){
+        
+        if($this->getUser())
+        {
             return $this->getUser()->getPreNom();
         }
-        else{
-            return "Utulisateur supprimé";
+        
+        else
+        {
+            return "L'utilisateur a bien été supprimé.";
         }
+    
     }
 
     public function getId(): ?int
