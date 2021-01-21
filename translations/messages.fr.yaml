@@ -1,24 +1,16 @@
 page:
   contact:
-    title: Contactez-nous maintenant
+    title: Contactez-nous
     subtitle: Nous répondons 24h/24
   reservation:
     subject: Demande de rendez-vous
-      titre: Vous avez recu un message
-      Texte: Bonjour, vous avez reçu un message de la part de ...
-
+    titre: Vous avez un nouveau rendez-vous
+    Texte: Bonjour, vous avez reçu un message de la part de...
 
 email:
   contact:
     subject: Demande de contact
-    titre: Vous avez reçu un message
+    titre: Vous avez une nouvelle demande de contact
     texte: Bonjour, vous avez reçu un message de la part de...   
   Enregistrement:
     subject: Valdidez votre inscription
-
-
-
-  
-
-
-

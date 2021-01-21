@@ -1,21 +1,23 @@
-{# se dossier est en relation avec le htmlTemplate qui se trouve dans le dossier SERVICE et le fichier EmailService.php#}
-{#Nous pouvons faire du html dans ce dossier d'envoi de message. cela permet d'editer des messages de confirmation d'envoi et de reception de mail #}
+{# Ce fichier est en relation avec le htmlTemplate qui se trouve dans le dossier SERVICE et le fichier EmailService.php. Nous pouvons faire du html dans ce dossier d'envoi de message. cela permet d'editer des messages de confirmation d'envoi et de reception de mail. #}
 
-<header>
-  Emotionnelles
+{% extends "email/base.email.twig" %}
+
+{% block body %}
+
+   <p>Bonjour {{ nom}}&nbsp;{{ prenom }},</p>
    
-</header>
+   <br>
+   
+   <p>Nous avons bien reçu votre message. Merci ! Nous vous contacterons très rapidement.</p>
 
-{% block body %}{% endblock %}
+   <br>
 
-   <div class="container" style="color: blue;">
-   Bonjour {{ nom}} {{ prenom }}
-   Nous accusons bonne réception de votre message.
-   Notre service client vous contacteras tres rapidement.
+   <p>Belle journée et à très vite,</p>
+   
+   <br>
+   
+   <p>L'équipe Emotion'elles</p>
+   
+   <br>
 
-   </div>
-
-<footer 
-   <hr>
- 
-</footer>
+{% endblock %}
