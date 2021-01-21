@@ -29,6 +29,7 @@
     background-image: url('images/img_intro.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center;
     width: 45%;
     height: 400px;
 }
