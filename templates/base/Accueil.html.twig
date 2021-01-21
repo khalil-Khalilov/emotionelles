@@ -80,11 +80,15 @@
         <!-- TOUTES LES REALISATIONS -->
         <div class="row contenu_realisations">
         
+            {% for realisation in lastrealisations %}
+
             <!-- REALISATION 1 : GRAND BLOC -->
-            <div class="col-6 realisations grand_bloc">
+            <div class="realisations {{ loop.first ? 'col-6 grand_bloc' : 'col-3 petit_bloc' }}">
             
                 <!-- IMAGE -->
                 <div class="image_realisation">
+
+                    <img src="{{ realisation.image }}" alt="Image"/> 
 
                     <!-- MORE -->
                     <div class="bloc_more">
@@ -95,14 +99,11 @@
                         
                         </div>
 
-                            <!-- FOLLOW -->
-                            <div class="follow">
+                        <!-- FOLLOW -->
+                        <div class="follow">
                         
                             <!-- COEUR VIDE -->
                             <i class="far fa-heart"></i>
-
-                            {# <!-- COEUR PLEIN -->
-                            <i class="fas fa-heart"></i> #}
 
                             <!-- SHARE -->
                             <i class="fas fa-share-alt"><a href="#"></a></i>
@@ -118,15 +119,15 @@
                 
                     <div class="row pb-2 titre_description">
                     
-                        <h4>Fauteuil club</h4>
+                        <h4>{{realisation.nomProduit}}</h4>
     
-                        <p class="pl-2 pt-1">Cuir brun - Réfection moderne</p>
+                        <p class="pt-1 {{ loop.last ? 'pl-2' : ' ' }}">{{realisation.caracteristique|length > 30 ? realisation.caracteristique|slice(0, 30) ~ '...' : realisation.caracteristique}}</p>
                     
                     </div>
 
                     <div class="row mt-4 prix_btn_acheter">
                         
-                        <button class="row btn_acheter"><a href="#">Acheter&nbsp;<span class="prix">&nbsp;350€&nbsp;</span></a><i class="fas fa-store"></i></button>
+                        <button class="row btn_acheter"><a href="#">Acheter&nbsp;<span class="prix">&nbsp;{{realisation.prix}} €&nbsp;</span></a><i class="fas fa-store"></i></button>
                     
                     </div>
                 
@@ -134,105 +135,7 @@
             
             </div>
 
-            <!-- REALISATION 2 : PETIT BLOC 1 -->
-            <div class="col realisations petit_bloc1">
-            
-                <!-- IMAGE -->
-                <div class="image_realisation">
-                    
-                    <!-- MORE -->
-                    <div class="bloc_more">
-                
-                        <div class="more">
-                        
-                            <p></p>
-                        
-                        </div>
-
-                            <!-- FOLLOW -->
-                            <div class="follow">
-                        
-                            <!-- COEUR VIDE -->
-                            <i class="far fa-heart"></i>
-
-                            {# <!-- COEUR PLEIN -->
-                            <i class="fas fa-heart"></i> #}
-
-                            <!-- SHARE -->
-                            <i class="fas fa-share-alt"><a href="{{ path('realisations')}}"></a></i>
-                    
-                        </div>
-            
-                    </div>
-
-                </div>
-
-                <!-- TEXTE -->
-                <div class="texte_realisations">
-                
-                    <h4>Banquette</h4>
-
-                    <p class="mb-3">Lin - Réfection traditionnelle</p>
-
-                    <div class="row mt-4 prix_btn_acheter">
-                        
-                        <button class="row btn_acheter"><a href="#">Acheter&nbsp;<span class="prix">&nbsp;450€&nbsp;</span></a><i class="fas fa-store"></i></button>
-                    
-                    </div>
-                
-                </div>
-                
-            </div>      
-            
-            <!-- REALISATION 3 : PETIT BLOC 2 -->
-            <div class="col realisations petit_bloc2">
-            
-                <!-- IMAGE -->
-                <div class="image_realisation">
-                    
-                    <!-- MORE -->
-                    <div class="bloc_more">
-                
-                        <div class="more">
-                        
-                            <p></p>
-                        
-                        </div>
-
-                            <!-- FOLLOW -->
-                            <div class="follow">
-                        
-                            <!-- COEUR VIDE -->
-                            <i class="far fa-heart"></i>
-
-                            {# <!-- COEUR PLEIN -->
-                            <i class="fas fa-heart"></i> #}
-
-                            <!-- SHARE -->
-                            <i class="fas fa-share-alt"><a href="#"></a></i>
-                    
-                        </div>
-            
-                    </div>
-
-                </div>
-
-                <!-- TEXTE -->
-                <div class="texte_realisations">
-                
-                    <h4>Canapé</h4>
-
-                    <p class="mb-3">Velour rouge - Réfection moderne</p>
-
-                    <div class="row mt-4 prix_btn_acheter">
-                        
-                        <button class="row btn_acheter"><a href="#">Acheter&nbsp;<span class="prix">&nbsp;1050€&nbsp;</span></a><i class="fas fa-store"></i></button>
-                    
-                    </div>
-                
-                </div>
-            
-            </div>
+            {% endfor %}
     
         </div>
 
@@ -326,12 +229,16 @@
        
         <div class="row contenu_actualites">
 
-            <!-- ACTUALITE 1 : PETIT BLOC 1 -->
-            <div class="col actualites petit_bloc1">
+            {% for actualite in lastactualites %}
+
+            <!-- ACTUALITE 1 : ACTUALITES -->
+            <div class="actualites {{ loop.last ? 'col-6 grand_bloc' : 'col-3 petit_bloc' }}">
             
                 <!-- IMAGE -->
                 <div class="image_actualite">
                     
+                    <img src="{{ actualite.image }}" alt="Image"/> 
+
                     <!-- MORE -->
                     <div class="bloc_more">
                 
@@ -358,55 +265,11 @@
 
                     <div class="row pb-2 titre_description">
                 
-                        <h4>Exposition à Voiron</h4>
+                        <h4>{{ actualite.titre }}</h4>
 
-                        <p class="pt-1 pb-3">Dans un espace atypique, venez admirer des créations (...)</p>
-
-                        <span>Samedi 16 janvier 2021 de 9h à 19h | Emotion'elles, 28 rue Dode à VOIRON</span>
-                    
-                    </div>
-                
-                </div>
-            
-            </div>
-            
-            <!-- ACTUALITE 2 : PETIT BLOC 2 -->
-            <div class="col actualites petit_bloc2">
-            
-                <!-- IMAGE -->
-                <div class="image_actualite">
-                    
-                    <!-- MORE -->
-                    <div class="bloc_more">
-                
-                        <div class="more">
-                        
-                            <p></p>
-                        
-                        </div>
-
-                        <!-- FOLLOW -->
-                        <div class="follow">
-
-                            <!-- SHARE -->
-                            <i class="fas fa-share-alt"><a href="#"></a></i>
-                
-                        </div>
-            
-                    </div>
-
-                </div>
-
-                <!-- TEXTE -->
-                <div class="texte_actualite">
-
-                    <div class="row pb-2 titre_description">
-                
-                        <h4>Porte ouverte de l'atelier</h4>
-
-                        <p class="pt-1 pb-3">Venez découvrir mon atelier et participer (...)</p>
-
-                        <span>Samedi 16 janvier 2021 de 9h à 19h | Emotion'elles, 28 rue Dode à VOIRON</span>
+                        <p class="pt-1">{{ actualite.description|length > 60 ? actualite.description|slice(0, 60) ~ '...' : actualite.description}} 
+                        <br/>
+                        Le {{ actualite.date|date('d/m/Y') }}</p>
                     
                     </div>
                 
@@ -414,55 +277,13 @@
             
             </div>
 
-            <!-- ACTUALITE 3 : GRAND BLOC -->
-            <div class="col-6 actualites grand_bloc">
-            
-                <!-- IMAGE -->
-                <div class="image_actualite">
-                    
-                    <!-- MORE -->
-                    <div class="bloc_more">
-                
-                        <div class="more">
-                        
-                            <p></p>
-                        
-                        </div>
-
-                        <!-- FOLLOW -->
-                        <div class="follow">
-
-                            <!-- SHARE -->
-                            <i class="fas fa-share-alt"><a href="#"></a></i>
-                
-                        </div>
-            
-                    </div>
-
-                </div>
-
-                <!-- TEXTE -->
-                <div class="texte_actualite">
-
-                    <div class="row pb-2 titre_description">
-                
-                        <h4>Porte ouverte de l'atelier</h4>
-
-                        <p class="pb-3 pt-1">Venez découvrir mon atelier et participer à une démonstration de réfection de chaises anciennes.</p>
-
-                        <span>Samedi 16 janvier 2021 de 9h à 19h | Emotion'elles, 28 rue Dode à VOIRON</span>
-                    
-                    </div>
-                
-                </div>
-            
-            </div>
+            {% endfor %}
         
         </div>
 
-        <div class="btn_redirection_realisations">
+        <div class="pt-4 pb-5 pr-0 btn_redirection_actualites">
         
-            <!-- BOUTON LIEN PAGE REALISATIONS -->
+            <!-- BOUTON LIEN PAGE ACTUALITES -->
             <button class="btn_redirection">
 
                 <a href="{{ path('actualites')}}">découvrir toutes nos actualités&nbsp;<i class="fas fa-arrow-right"></i></a>

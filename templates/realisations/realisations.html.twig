@@ -4,42 +4,102 @@
 
 {% block body %}
 
-    <div class="container">
+    <section class="container-fluid p-0 mb-5 page_realisations">
+    
+        <img src="{{asset('images/fauteuil_01.jpg')}}" alt="Fauteuil - Tapisserie d'ameublement Voiron"/>
+    
+    </section>
+
+    <section class="container">
+
+        <!-- TITRE -->
+        <div class="row pt-4 pb-4 justify-content-center titre_realisations">
+
+            <h2 class="bleu_clair">Nos réalisations</h2>
+            
+            <img class="apostrophe_petite" src="{{ asset('images/apostrophe_petite_bleu_clair.png')}}" alt="Apostrophe"/>
+            
+            <h3>Réalisées mains rien que pour vous !</h3>
+
+        </div>
+
+        {% if is_granted('ROLE_USER') %}
+
+        <div class="pt-0 pb-5 pr-0 justify-content-center btn_redirection_realisations">
         
-        <div>
-        
-            <a href="{{ path('realisationsBack') }}">Gérer mes réalisations</a>
+            <!-- BOUTON LIEN PAGE REALISATIONS BACK -->
+            <button class="btn_redirection">
+
+                <a href="{{ path('realisationsBack')}}">Gérer mes réalisations&nbsp;<i class="fas fa-arrow-right"></i></a>
+
+            </button>
         
         </div>
-    
-    
-        <div class="row">
+
+        {% endif %}
+
+        <div class="row contenu_realisations">
 
             {% for realisation in realisations %}
 
-            <div class="col-lg-4">
-                
-                <div class="card">
-
-                    <div class="card-body">
+            <!-- ACTUALITE 1 : ACTUALITES -->
+            <div class="realisations mb-5 {{ loop.index is divisible by (3) ? 'col-6 grand_bloc' : 'col-3 petit_bloc' }}">
+            
+                <!-- IMAGE -->
+                <div class="image_realisation">
                     
-                        <img class="card-img-top" src="{{ realisation.image }}" alt="Image"/>
-                        <h5 class="card-title">{{ realisation.nomProduit }}</h5>
-                        <p class="card-text">{{ realisation.prix }}</p>
-                        <p class="card-text">{{ realisation.caracteristique }}</p>
-                        <a href="{{ path('realisation', {id:realisation.id}) }}" class="btn btn-primary">Lire</a>
+                    <img src="{{ realisation.image }}" alt="Image"/> 
+
+                    <!-- MORE -->
+                    <div class="bloc_more">
+                
+                        <div class="more">
+                        
+                            <p></p>
+                        
+                        </div>
+
+                        <!-- FOLLOW -->
+                        <div class="follow">
+
+                            <!-- COEUR VIDE -->
+                            <i class="far fa-heart"></i>
+
+                            <!-- SHARE -->
+                            <i class="fas fa-share-alt"><a href="#"></a></i>
+                
+                        </div>
+            
+                    </div>
+
+                </div>
+
+                <!-- TEXTE -->
+                <div class="texte_realisations">
+
+                    <div class="row pb-2 titre_description">
+                
+                        <h4>{{ realisation.nomProduit }}</h4>
+
+                        <p class="pt-1 {{ loop.index is divisible by (3) ? 'pl-2' : ' ' }}">{{realisation.caracteristique|length > 30 ? realisation.caracteristique|slice(0, 30) ~ '...' : realisation.caracteristique}}</p>
                     
                     </div>
 
+                    <div class="row mt-4 prix_btn_acheter">
+                        
+                        <button class="row btn_acheter"><a href="#">Acheter&nbsp;<span class="prix">&nbsp;{{realisation.prix}} €&nbsp;</span></a><i class="fas fa-store"></i></button>
+                    
+                    </div>
+                
                 </div>
             
             </div>
 
             {% endfor %}
-    
-        </div>
+        
+        </div>    
 
-    </div>
+    </section>
        
 {% endblock %}
 

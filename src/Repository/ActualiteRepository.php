@@ -20,6 +20,15 @@ class ActualiteRepository extends ServiceEntityRepository
         parent::__construct($registry, Actualite::class);
     }
 
+    public function findLastActualites(int $limit)
+    {
+        return $this->findBy(
+            [],
+            ["date"=> 'DESC'],
+            $limit
+        );
+    }
+
     // /**
     //  * @return Actualite[] Returns an array of Actualite objects
     //  */

@@ -8,6 +8,10 @@
     padding-bottom: 0.6rem;
 }
 
+.logo span:hover {
+    color: #0E7483;
+}
+
 .logo:hover {
     color: #78DEDE;
 }
@@ -34,7 +38,7 @@ nav ul li a {
     color: #0E7483;
     font-weight: 600;
     text-transform: uppercase;
-    margin: 0 8px;
+    margin: 0 4px;
     font-size: 0.9rem;  
 }
 

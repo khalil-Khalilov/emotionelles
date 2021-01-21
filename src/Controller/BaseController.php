@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Repository\ActualiteRepository;
+use App\Repository\RealisationsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -12,9 +14,12 @@ class BaseController extends AbstractController
     /**
      * @Route("/", name="accueil")
      */
-    public function accueil(): Response
+    public function accueil(ActualiteRepository $actualiteRepository, RealisationsRepository $realisationsRepository): Response
     {
-        return $this->render('base/accueil.html.twig');
+        return $this->render('base/accueil.html.twig', [
+            "lastactualites" => $actualiteRepository->findLastActualites(3),
+            "lastrealisations" => $realisationsRepository->findLastRealisations(3)
+        ]);
     }
 
     /**
@@ -54,5 +59,6 @@ class BaseController extends AbstractController
             return $this->redirectToRoute('accueil');
         }
     }
+
 }
 

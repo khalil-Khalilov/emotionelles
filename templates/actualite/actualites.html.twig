@@ -4,27 +4,101 @@
 
 {% block body %}
 
-    <div class="container">
+    <section class="container-fluid p-0 mb-5 page_actualites">
+    
+        <img src="{{asset('images/fauteuil_01.jpg')}}" alt="Fauteuil - Tapisserie d'ameublement Voiron"/>
+    
+    </section>
 
-        <div class="row">
+    <section class="container">
+
+        <!-- TITRE -->
+        <div class="row pt-4 pb-4 justify-content-center titre_actualites">
+
+            <h2 class="bleu_clair">Nos actualités</h2>
+            
+            <img class="apostrophe_petite" src="{{ asset('images/apostrophe_petite_bleu_clair.png')}}" alt="Apostrophe"/>
+            
+            <h3>Retrouvez-nous près de chez vous !</h3>
+
+        </div>
+
+        {% if is_granted('ROLE_USER') %}
+
+        <div class="pt-0 pb-5 pr-0 justify-content-center btn_redirection_actualites">
+        
+            <!-- BOUTON LIEN PAGE REALISATIONS BACK -->
+            <button class="btn_redirection">
+
+                <a href="{{ path('actualitesBack')}}">Gérer mes actualites&nbsp;<i class="fas fa-arrow-right"></i></a>
+
+            </button>
+        
+        </div>
+
+        {% endif %}
+
+        <div class="row contenu_actualites">
 
             {% for actualite in actualites %}
 
-                <div class="col-lg-4">
-                    <div class="card">
-                        <div class="card-body">
-                            <img class="card-img-top" src="{{ actualite.image }}" alt="Image"/>
-                            <h5 class="card-title">{{ actualite.titre }}</h5>
-                            <div class="small">Publié le {{ actualite.date|date('d/m/Y') }}</div>
-                            <p class="card-text">{{ actualite.description|slice(0,100) }}</p>
-                            <a href="{{ path('actualite', {id:actualite.id}) }}" class="btn btn-primary">Lire</a>
+            <!-- ACTUALITE 1 : ACTUALITES -->
+            <div class="mb-5 actualites {{ loop.first or loop.index is divisible by (4) ? 'col-6 grand_bloc' : 'col-3 petit_bloc' }}">
+            
+                <!-- IMAGE -->
+                <div class="image_actualite">
+                    
+                    <img src="{{ actualite.image }}" alt="Image"/> 
+
+                    <!-- MORE -->
+                    <div class="bloc_more">
+                
+                        <div class="more">
+                        
+                            <p></p>
+                        
                         </div>
+
+                        <!-- FOLLOW -->
+                        <div class="follow">
+
+                            <!-- SHARE -->
+                            <i class="fas fa-share-alt"><a href="#"></a></i>
+                
+                        </div>
+            
                     </div>
+
                 </div>
 
+                <!-- TEXTE -->
+                <div class="texte_actualites">
+
+                    <div class="d-flex flex-column pt-3 pb-2 titre_description">
+                
+                        <h4>{{ actualite.titre }}</h4>
+
+                        <p class="pt-1 {{ loop.first or loop.index is divisible by (3) ? 'mb-3' : '' }}">{{ actualite.description|length > 60 ? actualite.description|slice(0, 60) ~ '...' : actualite.description}} 
+                        <br/>
+                        <br/>
+                        Le {{ actualite.date|date('d/m/Y') }}
+                        À {{ actualite.lieu}}</p>
+
+                        <div class="d-flex justify-content-end">
+                            <a href="{{ path('actualite', {id:actualite.id}) }}" class="mt-4 btn btn_menu btn_bleu">Lire</a>
+                        </div>
+                    
+                    </div>
+                
+                </div>
+            
+            </div>
+
             {% endfor %}
-        </div>
-    </div>
+        
+        </div>    
+
+    </section>
        
 {% endblock %}
 
