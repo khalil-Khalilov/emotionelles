@@ -35,6 +35,7 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            //cette function nous permet d'encoder le mot de passe créé
             $user->setPassword(
                 $passwordEncoder->encodePassword(
                     $user,
@@ -58,7 +59,7 @@ class RegistrationController extends AbstractController
              // @TODO Change the redirect on success and handle or remove the flash message in your templates
              $this->addFlash('success', 'Vous êtes inscrit entant que membre. Merci de confirmer votre lien inscription');
 
-                //FUNCTION POUR SE CONNECTER AUTOMATIQUEMENT:
+                //FUNCTION Permettant de connecter automatiquement l'utilisateur
             // return $guardHandler->authenticateUserAndHandleSuccess(
             //     $user,
             //     $request,
@@ -74,7 +75,7 @@ class RegistrationController extends AbstractController
     /**
      * @Route("/verify/email", name="app_verify_email")
      */ 
-    public function verifyUserEmail(Request $request): Response
+    public function verifyUserEmail(Request $request)
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         try{
@@ -82,6 +83,7 @@ class RegistrationController extends AbstractController
         }catch (VerifyEmailExceptionInterface $exception) {
             $this->addFlash('verify_email_error', $exception->getReason());
         }
+       
     }
 
     
