@@ -1,11 +1,33 @@
-<h1> Confirmation de votre inscription!</h1>
+ 
+<header>
+   
+   <h4>Bienvenue che Emotion'elles - Tapissier décorateur à Voiron</h4>
+   
+</header>
 
-<p>
-    Bienvenue chez emotionelles.<br> Merci de bien vouloir confirmer votre inscription en cliquant sur ce lien: <br><br>
-    <a href="{{ signedUrl|raw }}">Email de confirmation</a>.
-    This link will expire in {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.
-</p>
+<main>
 
-<p>
-    Cheers!
-</p>
+    <p>Merci de bien vouloir confirmer votre inscription en cliquant sur ce lien : <br><br>
+    
+        <a href="{{ signedUrl|raw }}">Confirmer mon email !</a>
+    
+    <br>Ce lien exprise dans {{ expiresAtMessageKey|trans(expiresAtMessageData, 'VerifyEmailBundle') }}.</p>
+
+    <br>
+
+    <p>Belle journée et à très vite,</p>
+   
+    <br>
+   
+    <p>L'équipe Emotion'elles</p>
+
+</main>
+
+<footer>
+
+   <hr>
+
+   <p>Nous trouver : 28 rue de Dode à Voiron - tél. 03 88 88 88 88 | Nos horaires : Du lundi au vendredi
+   de 9h00 à 19h00</p>
+ 
+</footer>

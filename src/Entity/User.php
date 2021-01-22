@@ -64,7 +64,6 @@ class User implements UserInterface
         $this->actualiteLiked = new ArrayCollection();
     }
 
-
     public function getId(): ?int
     {
         return $this->id;
@@ -189,7 +188,8 @@ class User implements UserInterface
 
     public function addComment(Comment $comment): self
     {
-        if (!$this->comments->contains($comment)) {
+        if (!$this->comments->contains($comment)) 
+        {
             $this->comments[] = $comment;
             $comment->setUser($this);
         }
@@ -201,7 +201,8 @@ class User implements UserInterface
     {
         if ($this->comments->removeElement($comment)) {
             // set the owning side to null (unless already changed)
-            if ($comment->getUser() === $this) {
+            if ($comment->getUser() === $this) 
+            {
                 $comment->setUser(null);
             }
         }

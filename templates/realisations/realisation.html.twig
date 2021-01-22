@@ -4,16 +4,30 @@
 
 {% block body %}
 
-    <div>
+    <!-- AFFICHER LA REALISATION -->
+    <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
     
-        <a href="{{ path('realisations') }}">Retour à la liste</a>
+        <img src="{{ realisation.image }}" alt="Image de l'actualité"/>
+
+        <div class="col-md-6 px-0">
+        
+            <h1 class="display-4">{{ realisation.titre }}</h1>
+
+            <p>{{ realisation.description|nl2br }}</p>
+
+            <p>{{ realisation.prix }}€ - Acheter</p>
+            
+            <!-- BOUTON : VOIR TOUTES LES REALISATIONS -->
+            <div class="btn_redirection_realisations">
+    
+                <!-- BOUTON LIEN PAGE REALISATIONS -->
+                <button class="btn_redirection">
+                    <a href="{{ path('realisations') }}">revenir à la liste&nbsp;<i class="fas fa-arrow-right"></i></a>
+                </button>
+    
+            </div>
+        </div>
     
     </div>
-
-    <img src="{{ asset('realisation.image')}}" alt="Image de la réalisation"/>
-
-    <h1>{{ realisation.nomProduit }}</h1>
-
-    <p>{{ realisation.caracteristique|nl2br }}</p>
     
 {% endblock %}

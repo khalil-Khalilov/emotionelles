@@ -21,7 +21,9 @@ class RealisationsController extends AbstractController
         $realisations = $realisationsRepository->findAll();
 
         return $this->render('realisations/realisations.html.twig', [
+        
             "realisations" => $realisations
+        
         ]);
     }
 
@@ -33,7 +35,9 @@ class RealisationsController extends AbstractController
         $realisation = $realisationsRepository->find($id);
         
         return $this->render('realisations/realisation.html.twig',[
+    
             "realisation" => $realisation
+        
         ]);
     }
 
@@ -61,23 +65,24 @@ class RealisationsController extends AbstractController
             }
 
             else 
-
             {
                 $this->addFlash('danger', "Le formulaire comporte des erreurs.");
             }
         }
 
         return $this->render('realisations/realisationsBack.html.twig', [
+
             "form" => $form->createView(),
             "realisation" => $realisation,
+    
         ]);
+    
     }
-
 
     /**
      * @Route("realisation/modifier/{id}", name="realisationmodifier", requirements={"id":"\d+"})
     */
-    public function modifier(Request $request, RealisationsRepository $realisationRepository, $id): Response
+    public function modifierRealisation(Request $request, RealisationsRepository $realisationRepository, $id): Response
     {
 
         $realisation = $realisationRepository->find($id);
@@ -87,6 +92,7 @@ class RealisationsController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted()){
+
             if($form->isValid()){
 
                 $em = $this->getDoctrine()->getManager();
@@ -94,22 +100,33 @@ class RealisationsController extends AbstractController
                 $em->flush();
                 
                 $this->addFlash('success', "La réalisation a bien été modifié.");
+
                 return $this->redirectToRoute('realisations');
-            }else {
-                $this->addFlash('danger', "Le formulaire comporte des erreurs.");
+            
             }
+            
+            else 
+            {
+            
+                $this->addFlash('danger', "Le formulaire comporte des erreurs.");
+            
+            }
+        
         }
 
         return $this->render('realisations/realisationmodifier.html.twig', [
+        
             "form" => $form->createView(),
             "realisation" => $realisation,
+        
         ]);
+    
     }
 
     /**
      * @Route("/realisation/supprimer/{id}", name="supprimerRealisation")
     */
-    public function deleteBlogRealisation(Realisations $realisation)
+    public function deleteRealisation(Realisations $realisation)
     {
 
         $em = $this->getDoctrine()->getManager();
@@ -117,7 +134,9 @@ class RealisationsController extends AbstractController
         $em->flush();
 
         $this->addFlash('success', "La réalisation a bien été supprimé.");
+
         return $this->redirectToRoute('realisations');
+    
     }
 
 }

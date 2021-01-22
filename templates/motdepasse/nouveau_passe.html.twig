@@ -1,0 +1,71 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Nouveau mot de passe{% endblock %}
+
+{% block body %}
+
+<div class="modal-body d-flex flex-row justify-content-around mb-4 p-3">
+        
+    <!-- IMAGE GAUCHE POP UP -->
+    <div class="img_popup"></div>
+
+    <!-- FORMULAIRE DE CONNEXION -->
+    <div class="deja_inscrit d-flex flex-column justify-content-center">
+
+        <h4>Nouveau mot de passe</h4>
+
+        <form action="" method="post">
+            
+            <label for="email">Votre Email</label>
+            <input type="email" id="email" name="email" class="form-control input" required placeholder="Votre email"/>
+
+            <button type="submit" class="mt-3 btn btn_menu btn_connexion">Valider</button>
+        
+        </form>
+
+        <hr class="mt-4 mb-4">
+
+
+        <!-- SE CONNECTER / S'INSCRIRE --> 
+        <div class="row d-flex align-items-center justify-content-between s_inscrire">
+        
+            <div class="col-6 p-0">
+                
+                <p>Dejà inscrit !?&nbsp;&nbsp;</p>
+                
+                <button class="btn_redirection">
+                    <a href="{{ path('app_login') }}">se connecter&nbsp;&nbsp;<i class="fas fa-arrow-right"></i></a>
+                </button>
+            
+            </div>
+
+            <div class="col-6 p-0">
+                
+                <p>Pas encore inscrit ?&nbsp;&nbsp;</p>
+                
+                <button class="btn_redirection">
+                    <a href="{{ path('app_register') }}">s'inscrire&nbsp;&nbsp;<i class="fas fa-arrow-right"></i></a>
+                </button>
+            
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+    {# <h1>Mot de passe oublié</h1>
+
+    <div class="row">
+        <div class="col-lg-4 mx-auto border shadow">
+            <form method="POST" class="p-4">
+                <label for="email">Votre email : </label>
+                <input type="email" id="email" name="email" class="form-control" required>
+
+                <button type="submit" class="btn btn-primary mt-4">Valider</button>
+            </form>
+        </div>
+    </div> #}
+{% endblock %}

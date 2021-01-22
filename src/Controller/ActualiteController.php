@@ -3,14 +3,18 @@
 namespace App\Controller;
 
 use App\Entity\Actualite;
-use App\Entity\Comment;
 use App\Form\ActualiteType;
-use App\Form\CommentType;
 use App\Repository\ActualiteRepository;
+
+use App\Entity\Comment;
+use App\Form\CommentType;
 use App\Repository\CommentRepository;
+
 use App\Repository\NewsletterContactRepository;
 use App\Service\EmailService;
+
 use DateTime;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,6 +22,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ActualiteController extends AbstractController
 {
+    // PARTIE ACTUALITE
+
     /**
      * @Route("/actualites", name="actualites")
     */
@@ -37,7 +43,6 @@ class ActualiteController extends AbstractController
     public function actualite(Request $request, ActualiteRepository $actualiteRepository, $id): Response
     {
 
-        
         $actualite = $actualiteRepository->find($id);
 
         $comment = new Comment;
@@ -46,8 +51,7 @@ class ActualiteController extends AbstractController
 
         $form->handleRequest($request);
 
-        if($form->isSubmitted()){
-            
+        if($form->isSubmitted()){ 
 
             if($form->isValid()){
 
@@ -56,25 +60,27 @@ class ActualiteController extends AbstractController
                     ->setUser($this->getUser())
                     ->setActualite($actualite);
 
-                // dd($comment);
-
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($comment);
                 $em->flush();
                 
-                $this->addFlash('success', "Comment is add.");
+                $this->addFlash('success', "Votre commentaire a bien été ajouté.");
 
                 return $this->redirectToRoute('actualite',["id"=>$actualite->getId()]);
             }
+
             else 
             {
-                $this->addFlash('danger', "Comment not add.");
+                $this->addFlash('danger', "Votre commentaire n'a pas été ajouté.");
             }
+        
         }
 
         return $this->render('actualite/actualite.html.twig', [
+            
             "actualite"=>$actualite,
             "form" => $form->createView(),
+        
         ]);
     }
 
@@ -101,7 +107,7 @@ class ActualiteController extends AbstractController
                 $em->persist($actualite);
                 $em->flush();
                 
-                $this->addFlash('success', "L'article a bien été crée.");
+                $this->addFlash('success', "L'article a bien été créée.");
 
                 if($new){
 
@@ -112,7 +118,7 @@ class ActualiteController extends AbstractController
                         $emailService->send([
 
                             'to' => $contact->getMail(),
-                            'subject' => "Nouvelle actualité - Emotion'elles",
+                            'subject' => "Découvrez la nouvelle actualité - Emotion'elles",
                             'template' => 'email/newsletter_actualite.email.twig',
                             'context' => [
                                 "actualite" => $actualite,
@@ -124,21 +130,21 @@ class ActualiteController extends AbstractController
                 }
                 
                 return $this->redirectToRoute('actualites');
+            
             }
+
             else 
             {
                 $this->addFlash('danger', "Le formulaire comporte des erreurs.");
             }
+        
         }
-
-
 
         return $this->render('actualite/actualiteBack.html.twig', [
             "form" => $form->createView(),
             "actualite" => $actualite,
         ]);
     }
-    
 
     /**
      * @Route("admin/modifierActualite/{id}", name="modifierActualite", requirements={"id":"\d+"})
@@ -153,6 +159,7 @@ class ActualiteController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted()){
+            
             if($form->isValid()){
 
                 $em = $this->getDoctrine()->getManager();
@@ -160,16 +167,24 @@ class ActualiteController extends AbstractController
                 $em->flush();
                 
                 $this->addFlash('success', "L'article a bien été modifié.");
+                
                 return $this->redirectToRoute('actualites');
-            }else {
+            
+            }
+            
+            else 
+            {
                 $this->addFlash('danger', "Le formulaire comporte des erreurs.");
             }
+        
         }
 
         return $this->render('actualite/modifierActualite.html.twig', [
+            
             "form" => $form->createView(),
             "actualite" => $actualite,
-        ]);
+        
+            ]);
     }
 
     /**
@@ -183,10 +198,12 @@ class ActualiteController extends AbstractController
         $em->flush();
 
         $this->addFlash('success', "L'article a bien été supprimé.");
+        
         return $this->redirectToRoute('actualites');
+    
     }
 
-    /////////////////////////////////////////////////////////////////////////
+    // PARTIE COMMENTAIRE
 
     /**
      * @Route("/modifierCommentaire/{id}", name="modifierCommentaire", requirements={"id":"\d+"})
@@ -203,6 +220,7 @@ class ActualiteController extends AbstractController
         $form->handleRequest($request);
 
         if($form->isSubmitted()){
+            
             if($form->isValid()){
 
                 $em = $this->getDoctrine()->getManager();
@@ -211,17 +229,23 @@ class ActualiteController extends AbstractController
                 
                 $this->addFlash('success', "Le commentaire a bien été modifié.");
 
-                // return $this->redirectToRoute('actualite',["id"=>$actualite->getId()]);
                 return $this->redirectToRoute('actualites');
-            }else {
+            }
+            
+            else 
+            {
                 $this->addFlash('danger', "Le formulaire comporte des erreurs.");
             }
+        
         }
 
         return $this->render('actualite/modifierCommentaire.html.twig', [
+            
             "form" => $form->createView(),
             "comment" => $comment,
+        
         ]);
+    
     }
 
     /**
@@ -238,6 +262,7 @@ class ActualiteController extends AbstractController
         $this->addFlash('success', "Le commentaire a bien été supprimé.");
 
         return $this->redirectToRoute('actualites');
-        // return $this->redirectToRoute('actualite',["id"=>$actualite->getId()]);
+
     }
+
 }

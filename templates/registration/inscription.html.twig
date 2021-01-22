@@ -1,14 +1,78 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Inscription{% endblock %}
+{% block title %}Inscription {% endblock %}
 
 {% block body %}
+
     {% for flashError in app.flashes('verify_email_error') %}
+
         <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+    
     {% endfor %}
 
-    <h1>Page d'inscription</h1>
-    {#Le formulaire de contact de la page inscription generer par le make:registerform#}
+    <div class="modal-body d-flex flex-row justify-content-around mb-4 p-3">
+            
+        <!-- IMAGE GAUCHE POP UP -->
+        <div class="img_popup"></div>
+
+        <!-- FORMULAIRE DE CONNEXION -->
+        <div class="deja_inscrit d-flex flex-column justify-content-center">
+            
+            <h4>Envie de nous rejoindre ? Inscrivez-vous!</h4>
+
+            <form action="" method="POST">
+
+                <!-- NOM -->
+                <label for="registration_form_nom" class="mt-2">Votre nom</label>
+                <input type="text" name="registration_form_[nom]" id="registration_form_nom" class="form-control input" required autofocus placeholder="votre nom"/>
+
+                <!-- PRENOM -->
+                <label for="registration_form_prenom" class="mt-2">Votre prenom</label>
+                <input type="text" name="registration_form_[prenom]" id="registration_form_prenom" class="form-control input" required autofocus placeholder="votre prenom"/>
+                
+                <!-- EMAIL -->
+                <label for="registration_form_email" class="mt-2">Votre email</label>
+                <input type="email" name="registration_form_[email]" id="registration_form_email" class="form-control input" required placeholder="votre email"/>
+
+                <!-- MOT DE PASSE -->
+                <label for="registration_form_plainPassword" class="mt-2">Votre mot de passe</label>
+                <input type="password" name="registration_form_[plainPassword]" id="registration_form_plainPassword" class="form-control input" required placeholder="votre mot de passe"/>
+
+                <div class="checkbox mt-3 mb-3 d-flex align-items-center justify-content-between">
+
+                    <button class="btn btn_menu btn_connexion" type="submit">M'inscrire</button>
+
+                    <div class="form-check">        
+                
+                        <input type="checkbox" id="registration_form_agreeTerms" name="registration_form[agreeTerms]" required="required" class="form-check-input" value="1">
+                
+                        <label class="form-check-label required" for="registration_form_agreeTerms">Accepter les conditions</label>
+                
+                    </div>
+
+                </div>
+
+            </form>
+
+            <hr class="mt-4 mb-4">
+
+            <!-- SE CONNECTER --> 
+            <div class="row d-flex align-items-center justify-content-between s_inscrire">
+            
+                <p>Dejà inscrit !?&nbsp;&nbsp;</p>
+                
+                <button class="btn_redirection">
+                    <a href="{{ path('app_login') }}">se connecter&nbsp;&nbsp;<i class="fas fa-arrow-right"></i></a>
+                </button>
+
+            </div>
+        
+        </div>
+
+    </div>
+
+     
+    {#Le formulaire de contact de la page inscription generer par le make:registerform 
         {{ form_start(registrationForm) }}
         {{ form_row(registrationForm.nom) }}
         {{ form_row(registrationForm.prenom) }}
@@ -17,7 +81,7 @@
             label: 'Password'
         }) }}
         {{ form_row(registrationForm.agreeTerms) }}
-{#le bouton de validation#}
-        <button type="submit" class="btn btn-primary">Enregistrement</button>
-    {{ form_end(registrationForm) }}
+        <button type="submit" class="btn btn-primary">Inscription</button>
+    {{ form_end(registrationForm) }}#}
+
 {% endblock %}

@@ -1,13 +1,112 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} | Emotionelles{% endblock %}
+{% block title %}Réservation {% endblock %}
 
 {% block body %}
 
-    {{form_start(form)}}
+<div class="modal-body d-flex flex-row justify-content-around mb-4 p-3">
+        
+    <!-- IMAGE GAUCHE POP UP -->
+    <div class="img_popup"></div>
+
+    <!-- FORMULAIRE DE CONNEXION -->
+    <div class="deja_inscrit d-flex flex-column justify-content-center">
+        
+        <h4>Un projet personnalisé? Prenez rendez-vous!</h4>
+
+        <form action="" method="POST">
+
+            <div class="row pt-2 pb-2">
+               
+                <div class="col-6 p-0">
+
+                    <!-- NOM -->
+                    <label for="firstname" class="mt-2">Votre nom</label>
+                    <input type="text" name="firstname" id="firstname" class="form-control input" placeholder="votre nom" required autofocus/>
+
+                </div>
+
+                <div class="col-6 p-0 pl-2">                
+
+                    <!-- PRENOM -->
+                    <label for="lastname" class="mt-2">Votre prenom</label>
+                    <input type="text" name="lastname" id="lastname" class="form-control input" placeholder="votre prenom" required autofocus/>
+
+                </div>
+
+            </div>
+
+            <div class="row pt-2 pb-2">
+               
+                <div class="col-3 p-0">
+
+                    <!-- NUMERO DE TELEPHONE -->
+                    <label for="registration_form_plainPassword" class="mt-2">Votre numéro</label>
+                    <input type="text" name="registration_form_[plainPassword]" id="registration_form_plainPassword" class="form-control input" required placeholder="votre numéro"/>
+                
+                </div>
+
+                <div class="col-9 p-0 pl-2">
+                    
+                    <!-- EMAIL -->
+                    <label for="registration_form_email" class="mt-2">Votre email</label>
+                    <input type="email" name="registration_form_[email]" id="registration_form_email" class="form-control input" required placeholder="emotionelle@emotionnelles.com"/>
+                
+                </div>
+            
+            </div>
+
+            <div class="row pt-2 pb-2">
+               
+                <div class="col-6 p-0">
+                
+                    <!-- DATE -->
+                    <label for="reservation_date_reservation" class="required">Date reservation</label>
+                    <input type="date" id="reservation_date_reservation" name="reservation[date_reservation]" required="required" class="form-control input"/>
+                
+                </div>
+
+                <div class="col-6 p-0 pl-2">
+                 
+                    <!-- HEURE -->
+                    <label class="required" for="reservation_heure_reservation">Heure de réservation</label>
+                    <select id="reservation_heure_reservation" name="reservation[heure_reservation]" class="form-control input"/>
+                    
+                        <option value="09">09:00</option>
+                        <option value="10">10:00</option>
+                        <option value="11">11:00</option>
+                        <option value="14">14:00</option>
+                        <option value="15">15:00</option>
+                        <option value="16">16:00</option>
+                    
+                    </select>
+                
+                </div>
+            
+            </div>
+
+            <!-- MOTIF -->
+            <label for="reservation_motif" class="mt-2">Le motif de votre rendez-vous</label>
+            <textarea rows='3' name="reservation_[motif]" id="reservation_motif" class="form-control input" required placeholder="Le motif de votre rendez-vous"></textarea>
+
+            <div class="checkbox mt-3 mb-3 d-flex align-items-center justify-content-between">
+
+                <button class="btn btn_menu btn_connexion" type="submit">M'inscrire</button>
+
+            </div>
+
+        </form>
+    
+    </div>
+
+</div>
+
+    {# {{form_start(form)}}
+        
         {{form_widget(form)}}
-            <button type="submit" class="btn btn-primary">Valider</button>
+        
+        <button type="submit" class="btn btn-primary">Valider</button>
 
+    {{form_end(form)}} #}
 
-    {{form_end(form)}}
 {% endblock %}

@@ -11,10 +11,12 @@ class ConnexionController extends AbstractController
     /**
      * @Route("/connexion", name="connexion")
      */
-    public function index(): Response
+    public function connexion(): Response
     {
         return $this->render('connexion/connexion.html.twig', [
+            
             'controller_name' => 'ConnexionController',
+        
         ]);
     }
 }

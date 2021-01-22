@@ -1,0 +1,23 @@
+{% extends "email/base.email.twig" %}
+
+{% block body %}
+
+    <p>Bonjour {{ user.nom }},</p>
+   
+    <br>
+   
+    <p>Pour réinitialiser votre compte, cliquez ici : <br>
+        <a href="{{lien}}"> Réinitialisation de votre mot de passe</a>
+    </p>
+
+    <br>
+
+    <p>Belle journée et à très vite,</p>
+   
+    <br>
+   
+    <p>L'équipe Emotion'elles</p>
+   
+    <br>
+
+{% endblock %}

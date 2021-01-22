@@ -14,8 +14,10 @@ class ContactController extends AbstractController
      * @Route("/contact", name="contact")
      */
     public function contact(EmailService $emailService, Request $request): Response
+    //cette function sera transmise et traitée dans le document/fichier service.
+
     {  
-        //dd($request);
+       
         $method = $request->getMethod();
         
         if ($request->isMethod('POST')){
@@ -25,13 +27,10 @@ class ContactController extends AbstractController
             $numero = $request->request->get('numero');
             $email = $request->request->get('email');
             $message = $request->request->get('message');
-            // dd('POST'); permet de recuperer le mail + le message envoyé et verifier la méthode utilisée
-            // dd($request->request->all());
-        
-            //cette function sera transmise et traitée dans le document/fichier service.
        
-            //une variable $emailService en forme de tableau transmet les informations à Emailservice
             $emailService->send([
+            //une variable $emailService en forme de tableau transmet les informations à Emailservice
+
             
                 'replyTo' => $email,
                 'message' => $message,
@@ -44,13 +43,12 @@ class ContactController extends AbstractController
                     'mail'=> $email,
                     'message'=> $message
             ]
-
             // nous pouvons rajouter des lignes supplémentaire si besoin dans le tableau
         
         ]); 
 
-        // Email de confirmation client
         $emailService->send([
+        // Email de confirmation client
 
             'to' => $email,
             'subject' => "Nous avons bien reçu votre message - Emotion'elles",
@@ -65,11 +63,14 @@ class ContactController extends AbstractController
             
         ]);
 
+            $this->addFlash('success', "Nous avons bien reçu votre message.");
             //message flash pour signifier que le message a été envoyé.
-            $this->addFlash('success', "Nous avons bien reçu votre message.") ; 
+ 
             return $this->redirectToRoute('contact');
+        
         }
     
         return $this->render('contact/contact.html.twig', []);
+    
     }
 }
