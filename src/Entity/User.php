@@ -61,6 +61,7 @@ class User implements UserInterface
     public function __construct()
     {
         $this->comments = new ArrayCollection();
+        $this->actualiteLiked = new ArrayCollection();
     }
 
 
@@ -207,4 +208,5 @@ class User implements UserInterface
 
         return $this;
     }
+
 }
