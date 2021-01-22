@@ -20,7 +20,8 @@
             
             <h4>Envie de nous rejoindre ? Inscrivez-vous!</h4>
 
-             {#Le formulaire de contact de la page inscription generer par le make:registerform #}
+            {#Le formulaire de contact de la page inscription generer par le make:registerform #}
+            
             {{ form_start(registrationForm) }}
                 {{ form_row(registrationForm.nom) }}
                 {{ form_row(registrationForm.prenom) }}
@@ -32,7 +33,8 @@
                 <button type="submit" class="btn btn-primary">Inscription</button>
             {{ form_end(registrationForm) }}
 
-            {# <form action="{{ path('accueil')}}" method="POST">
+            {# <form action="" method="POST">
+
 
                 <!-- NOM -->
                 <label for="registration_form_nom" class="mt-2">Votre nom</label>
@@ -82,8 +84,5 @@
         </div>
 
     </div>
-
-     
-   
 
 {% endblock %}

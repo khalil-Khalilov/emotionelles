@@ -121,7 +121,8 @@ class ActualiteController extends AbstractController
                             'subject' => "Découvrez la nouvelle actualité - Emotion'elles",
                             'template' => 'email/newsletter_actualite.email.twig',
                             'context' => [
-                                "actualite" => $actualite
+                                "actualite" => $actualite,
+                                "contact" => $contact
                             ]
                             
                         ]);

@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use App\Entity\NewsletterContact;
 use App\Repository\NewsletterContactRepository;
-
+use Nzo\UrlEncryptorBundle\Encryptor\Encryptor;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -44,5 +44,28 @@ class NewsletterController extends AbstractController
 
             return $this->redirect($request->headers->get("referer"));
         }
+    }
+
+
+    /**
+     * @Route("/newsletter/unsubscribe/{id}", name="newsletter_unsubscribe")
+    */
+    public function newsletterUnsubscribe(Encryptor $encryptor, Request $request, NewsletterContactRepository $newsletterContactRepository, $id): Response
+    {   
+
+        $id = $encryptor->decrypt($id);
+
+       
+        $contactDelete = $newsletterContactRepository->find($id);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($contactDelete);
+        $em->flush();
+
+        $this->addFlash('success',"Vous etes bien desincrit de newsletter");
+
+        return $this->render('newsletter/unsubscribe.html.twig', [
+            
+        ]);
     }
 }

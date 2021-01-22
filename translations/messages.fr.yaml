@@ -7,10 +7,11 @@ page:
     titre: Vous avez un nouveau rendez-vous
     Texte: Bonjour, vous avez reçu un message de la part de...
 
+
 email:
   contact:
     subject: Demande de contact
     titre: Vous avez une nouvelle demande de contact
     texte: Bonjour, vous avez reçu un message de la part de...   
   Enregistrement:
-    subject: Valdidez votre inscription
+    subject: Validez votre inscription

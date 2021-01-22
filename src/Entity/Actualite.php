@@ -54,9 +54,11 @@ class Actualite
      */
     private $comments;
 
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
+        $this->likers = new ArrayCollection();
     }
 
     public function getId(): ?int

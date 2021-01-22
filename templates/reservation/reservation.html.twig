@@ -14,7 +14,7 @@
         
         <h4>Un projet personnalisé? Prenez rendez-vous!</h4>
 
-        <form action="" method="POST">
+        {# <form action="" method="POST">
 
             <div class="row pt-2 pb-2">
                
@@ -95,7 +95,15 @@
 
             </div>
 
-        </form>
+        </form> #}
+
+    {{form_start(form)}}
+        
+        {{form_widget(form)}}
+        
+        <button type="submit" class="btn btn-primary">Valider</button>
+
+    {{form_end(form)}}
     
     </div>
 
