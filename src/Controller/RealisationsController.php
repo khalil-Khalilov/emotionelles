@@ -55,6 +55,16 @@ class RealisationsController extends AbstractController
         if($form->isSubmitted()){
             
             if($form->isValid()){
+
+                $image = $form->get('image')->getData();
+
+                if($image){
+                    $repertoire = $this->getParameter('images');
+                    $nomDuImage = 'images/'.'image'.'-'.uniqid().'.'.$image->guessExtension();
+                    $image->move($repertoire, $nomDuImage);
+                    $realisation->setImage($nomDuImage);
+                }
+
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($realisation);
                 $em->flush();
@@ -74,7 +84,6 @@ class RealisationsController extends AbstractController
 
             "form" => $form->createView(),
             "realisation" => $realisation,
-    
         ]);
     
     }
