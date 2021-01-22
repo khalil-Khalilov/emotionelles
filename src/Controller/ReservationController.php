@@ -82,9 +82,7 @@ class ReservationController extends AbstractController
             
             else 
             {
-            
                 $this->addFlash('danger', "Le formulaire comporte des erreurs.");
-            
             }
         
         }
