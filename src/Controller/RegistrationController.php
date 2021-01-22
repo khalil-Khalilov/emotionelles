@@ -42,6 +42,7 @@ class RegistrationController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
+
             $user->setPassword(
                 $passwordEncoder->encodePassword(
 
@@ -65,6 +66,8 @@ class RegistrationController extends AbstractController
            );
 
              $this->addFlash('success', 'Vous êtes inscrit entant que membre. Merci de confirmer votre lien inscription');
+
+
 
         }  
 
@@ -95,7 +98,7 @@ class RegistrationController extends AbstractController
             $this->addFlash('verify_email_error', $exception->getReason());
         
         }
-    
+
     }
     
 }
