@@ -39,4 +39,3 @@ services:
             $adminEmail: '%ADMIN_EMAIL%' 
             $env: '%APP_ENV%'
             $DOMAIN_NAME: '%DOMAIN_NAME%'
-    

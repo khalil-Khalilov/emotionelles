@@ -1,13 +1,19 @@
-{# se dossier est en relation avec le htmlTemplate qui se trouve dans le dossier SERVICE et le fichier EmailService.php#}
-{#Nous pouvons faire du html dans ce dossier d'envoi de message. #}
+{# Ce dossier est en relation avec le htmlTemplate qui se trouve dans le dossier SERVICE et le fichier EmailService.php. Nous pouvons faire du html dans ce fichier d'envoi de message. #}
+
 {% extends "email/base.email.twig" %}
 
 {% block body %}
-<div class="message" style:"font-size:30px;">
-Vous avez un message de </b> {{ reservation.nom }}
-</div>
-<br><br>
 
- <b>CONTENU DU MESSAGE: <br></b>{{ reservation.motif }}
+    <p>Bonjour Emotion'elles,</p>
+
+    <br>
+
+    <p>Vous avez une nouvelle réservation de {{ reservation.nom }}</p>
+
+    <br>
+
+    <p>Pour le motif suivant :{{ reservation.motif}}</p>
+
+    <br>
 
 {% endblock %}

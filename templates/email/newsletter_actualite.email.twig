@@ -2,7 +2,21 @@
 
 {% block body %}
 
-Nouvelle actualité publié sur emotionelles - <a href="{{DOMAIN_NAME}}{{path('actualite', {id:actualite.id} )}}">{{actualite.titre}}</a>
- 
+    <p>Bonjour,</p>
+   
+   <br>
+   
+   <p>Bonne nouvelle ! Une nouvelle actualité est disponible, pour la découvrir rendez-vous par ici : <br>
+        <a href="{{DOMAIN_NAME}}{{path('actualite', {id:actualite.id} )}}">{{actualite.titre}}</a>
+    </p>
 
+   <br>
+
+   <p>Belle journée et à très vite,</p>
+   
+   <br>
+   
+   <p>L'équipe Emotion'elles</p>
+   
+   <br>
 {% endblock %}

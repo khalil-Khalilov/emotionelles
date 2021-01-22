@@ -4,66 +4,100 @@
 
 {% block body %}
 
+    <!-- AFFICHER LES ACTUALITÉS -->
+    <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
+    
+        <img src="{{ actualite.image }}" alt="Image de l'actualité"/>
 
-    {# Btn pour voir la liste des actualites #}
+        <div class="col-md-6 px-0">
+        
+            <h1 class="display-4">{{ actualite.titre }}</h1>
+            
+            <!-- BOUTON : VOIR LES ACTUALITÉS -->
+            <div class="btn_redirection_actualites">
+    
+                <!-- BOUTON LIEN PAGE ACTUALITES -->
+                <button class="btn_redirection">
+                    <a href="{{ path('actualites') }}">revenir à la liste&nbsp;<i class="fas fa-arrow-right"></i></a>
+                </button>
+    
+            </div>
+        </div>
+    
+    </div>
+
     <div>
-        <a href="{{ path('actualites') }}">Retour à la liste</a>
+
+        <div class="mb-5">
+            Publié le {{ actualite.date|date('d/m/Y') }}
+        </div>
+
+        <p>{{ actualite.description|nl2br }}</p>
+
     </div>
 
-
-    {# Affichage d'actualite #}
-    <img src="{{ actualite.image }}" alt="Image de l'actualité"/>
-
-    <h1>{{ actualite.titre }}</h1>
-
-    <div class="mb-5">
-        Publié le {{ actualite.date|date('d/m/Y') }}
-    </div>
-
-    <p>{{ actualite.description|nl2br }}</p>
-
-    <br>
-
-{# Verification SI user est connecter #}
+<!-- Verification SI user est connecter -->
 {% if is_granted('ROLE_USER') %}
 
-    {# Formulaire de commentaire #}
+    <!-- Formulaire de commentaire -->
     {{form_start(form)}}
 
         {{form_widget(form)}}
-                <button type="submit" class="btn btn-primary">Valider</button>
+
+        <button type="submit" class="row btn_connexion">Valider</button>
+    
     {{form_end(form)}}
 
-    {% else %}
-        <a data-toggle="modal" data-target="#loginModal" class="nav-link btn_menu btn_connexion" 
-            href="{{ path('app_login') }}">Connectez-vous pour commenter les articles</a>
+{% else %}
+    
+    <div class="d-flex flex-column">
+        
+        <p>Pour laisser un commentaire :</p>
+
+        <button class="row btn_connexion">
+            <a data-toggle="modal" data-target="#loginModal" href="{{ path('app_login') }}">Se connecter</a>
+        </button>
+
+    </div>
+
 {% endif %}
 
 
-{# Affichage de commentaire #}
-    <div class="container">
+<!-- Afficher les commentaires -->
+<div class="container">
 
-        <div class="row">
+    <div class="row">
 
-            {% for comment in actualite.comments %}
+        {% for comment in actualite.comments %}
 
-                <div class="col-lg-4">
-                    
-                    <div class="card">
+            <div class="col-sm avis avis_1">
 
-                        <div class="card-body">
-                            <h5 class="small">Publié le {{ actualite.date|date('d/m/Y') }} par {{comment.userName}}</h5>
-                            <a href="{{ path('modifierCommentaire', { id: comment.id }) }}" class="btn btn-outline-info"><i class="fas fa-tools" title="Modifier"></i></a>
-                            <p>{{ comment.comment }}</p>
-                        </div>
+                <h4>{{comment.userName}}</h4>
 
-                    </div>
+                <p>{{ comment.comment }}</p>
+
+                <br/>
+
+                <span>Publié le {{ actualite.date|date('d/m/Y') }}</span>
+                
+                <div class="row etoiles">
+                
+                    <i class="far fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
                 
                 </div>
 
-            {% endfor %}
-    
-        </div>
+                <a href="{{ path('modifierCommentaire', { id: comment.id }) }}" class="btn btn-outline-info"><i class="fas fa-tools" title="Modifier"></i></a>
+
+            </div>
+
+        {% endfor %}
 
     </div>
+
+</div>
+
 {% endblock %}

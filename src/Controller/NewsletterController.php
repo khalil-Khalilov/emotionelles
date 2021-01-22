@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\NewsletterContact;
 use App\Repository\NewsletterContactRepository;
+use Nzo\UrlEncryptorBundle\Encryptor\Encryptor;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -14,7 +15,7 @@ class NewsletterController extends AbstractController
     /**
      * @Route("/newsletter/subscribe", name="newsletter_subscribe")
      */
-    public function index(Request $request, NewsletterContactRepository $newsletterContactRepository)
+    public function newsletterSubscribe(Request $request, NewsletterContactRepository $newsletterContactRepository)
     {
 
         if ($request->isMethod('POST')){
@@ -24,6 +25,7 @@ class NewsletterController extends AbstractController
             $contactExist = $newsletterContactRepository->findOneBy(['mail'=>$mail]);
 
             if($contactExist === NULL){
+                
                 $contact = new NewsletterContact();
                 $contact->setMail($mail);
                 
@@ -31,14 +33,39 @@ class NewsletterController extends AbstractController
                 $em->persist($contact);
                 $em->flush();
 
-                $this->addFlash('success', "OK");
+                $this->addFlash('success', "Bravo, vous êtes inscrit ! Merci");
 
             }
-            else{
-                $this->addFlash('info', "Vous êtes déjà inscrit");
+            
+            else
+            {
+                $this->addFlash('info', "Zut, vous êtes déjà inscrit !");
             }
 
             return $this->redirect($request->headers->get("referer"));
         }
+    }
+
+
+    /**
+     * @Route("/newsletter/unsubscribe/{id}", name="newsletter_unsubscribe")
+    */
+    public function newsletterUnsubscribe(Encryptor $encryptor, Request $request, NewsletterContactRepository $newsletterContactRepository, $id): Response
+    {   
+
+        $id = $encryptor->decrypt($id);
+
+       
+        $contactDelete = $newsletterContactRepository->find($id);
+
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($contactDelete);
+        $em->flush();
+
+        $this->addFlash('success',"Vous etes bien desincrit de newsletter");
+
+        return $this->render('newsletter/unsubscribe.html.twig', [
+            
+        ]);
     }
 }

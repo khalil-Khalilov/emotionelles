@@ -17,42 +17,48 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class MotdepasseController extends AbstractController
- {
+{
     /**
      * @Route("/mot-de-passe-oublie", name="motdepasse_oublie")
      */
     public function motdepasse(Request $request, UserRepository $userRepository, EmailService $emailService,Encryptor $encryptor ): Response
     {
-        if($request->isMethod('POST')) {
+        
+        if($request->isMethod('POST')) 
+        {
+
             $email = $request->request->get('email');
             $user = $userRepository->findOneByEmail($email);
-           if ($user) {
-            $token = $encryptor->encrypt('nouveau-passe$'.$user->getEmail());
-            $lien = $this->generateUrl('nouveau_passe',[
-                'token' => $token
-            ], UrlGeneratorInterface::ABSOLUTE_URL);
-         
+
+            if ($user) {
+                $token = $encryptor->encrypt('nouveau-passe$'.$user->getEmail());
+                $lien = $this->generateUrl('nouveau_passe',[
+                    'token' => $token
+                ], UrlGeneratorInterface::ABSOLUTE_URL);
+            
                 //dd($token);
 
-              $emailService->send([
-                  'to' => $user->getEmail(),
-                  'subject' => "Reinitialisation email" ,
-                  'template' => "email/envoipasse_oublie.email.twig",
-                  'context'=>[
-                      'lien'=>$lien,
-                      'user'=> $user,
-                  ] ,
+                $emailService->send([
+                    'to' => $user->getEmail(),
+                    'subject' => "Reinitialisation email" ,
+                    'template' => "email/envoipasse_oublie.email.twig",
+                    'context'=>[
+                        'lien'=>$lien,
+                        'user'=> $user,
+                    ] ,
 
-             ]);
 
-           }
-           $this->addFlash('success', "Vous recevrez un message si votre compte existe.");
-           return $this->redirectToRoute('motdepasse_oublie');
+                ]);
+
+            }
+            
+            $this->addFlash('success', "Vous recevrez un message si votre compte existe.");
+            return $this->redirectToRoute('motdepasse_oublie');
         
         }
-        return $this->render('motdepasse/motdepasse_oublie.html.twig', [
-            
-        ]);
+        
+        return $this->render('motdepasse/motdepasse_oublie.html.twig', []);
+    
     }
 
     /**
@@ -116,5 +122,7 @@ class MotdepasseController extends AbstractController
             'form' => $form->createView(),
 
         ]);
+
     }
+
 }

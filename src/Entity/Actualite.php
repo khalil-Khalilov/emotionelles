@@ -54,9 +54,11 @@ class Actualite
      */
     private $comments;
 
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
+        $this->likers = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -146,23 +148,33 @@ class Actualite
 
     public function addComment(Comment $comment): self
     {
-        if (!$this->comments->contains($comment)) {
+        
+        if (!$this->comments->contains($comment)) 
+        {
             $this->comments[] = $comment;
             $comment->setActualite($this);
         }
 
         return $this;
+    
     }
 
     public function removeComment(Comment $comment): self
     {
+        
         if ($this->comments->removeElement($comment)) {
-            // set the owning side to null (unless already changed)
+        // set the owning side to null (unless already changed)
+        
             if ($comment->getActualite() === $this) {
+            
                 $comment->setActualite(null);
+            
             }
+        
         }
 
         return $this;
+    
     }
+
 }
