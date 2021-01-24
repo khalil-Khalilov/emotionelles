@@ -31,8 +31,8 @@ class ReservationController extends AbstractController
             
             if($form->isValid()){
 
-                $date = $form->get('date_reservation')->getData(); // 2020-10-02
-                $heure = $form->get('heure_reservation')->getData(); // 09
+                $date = $form->get('date_reservation')->getData(); // format 2020-10-02
+                $heure = $form->get('heure_reservation')->getData(); // format 09:00
                 $date_reservation = new \DateTime($date->format("Y-m-d")." ".$heure.":00:00");
                 $dateisFree = $reservationRepository->isdateFree ($date_reservation);
         
@@ -87,8 +87,8 @@ class ReservationController extends AbstractController
         
         }
         
-        $date = $form->get('date_reservation')->getData(); // 2020-10-02
-        $heure = $form->get('heure_reservation')->getData(); // 09:00
+        $date = $form->get('date_reservation')->getData(); // format 2020-10-02
+        $heure = $form->get('heure_reservation')->getData(); // format 09:00
                 
         return $this->render('reservation/reservation.html.twig', [
             "form" => $form->createView(),
