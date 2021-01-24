@@ -4,14 +4,16 @@
 
 {% block body %}
 
-    <!-- AFFICHER LES ACTUALITÉS -->
-    <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
-    
-        <img src="{{ actualite.image }}" alt="Image de l'actualité"/>
+<section class="container">
 
-        <div class="col-md-6 px-0">
+    <!-- AFFICHER LES ACTUALITÉS -->
+    <div class="jumbotron p-0 page_actualite">
+    
+        <img src="{{asset(actualite.image)}}" alt="Image de l'actualité"/>
+
+        <div class="bloc_texte">
         
-            <h1 class="display-4">{{ actualite.titre }}</h1>
+            <h2 class="display-4">{{ actualite.titre }}</h1>
             
             <!-- BOUTON : VOIR LES ACTUALITÉS -->
             <div class="btn_redirection_actualites">
@@ -28,76 +30,78 @@
 
     <div>
 
-        <div class="mb-5">
+        <p class="mb-2">
             Publié le {{ actualite.date|date('d/m/Y') }}
+        </p>
+
+        <p class="mb-2">{{ actualite.description|nl2br }}</p>
+
+    </div>
+
+    <!-- Verification SI user est connecter -->
+    {% if is_granted('ROLE_USER') %}
+
+        <!-- Formulaire de commentaire -->
+        {{form_start(form)}}
+
+            {{form_widget(form)}}
+
+            <button type="submit" class="btn btn_menu btn_connexion">Valider</button>
+        
+        {{form_end(form)}}
+
+    {% else %}
+        
+        <div class="d-flex flex-column">
+            
+            <p class="mt-3 mb-3">Pour laisser un commentaire :</p>
+
+            <button class="btn btn_menu btn_connexion">
+                <a data-toggle="modal" data-target="#loginModal" href="{{ path('app_login') }}">Se connecter</a>
+            </button>
+
         </div>
 
-        <p>{{ actualite.description|nl2br }}</p>
-
-    </div>
-
-<!-- Verification SI user est connecter -->
-{% if is_granted('ROLE_USER') %}
-
-    <!-- Formulaire de commentaire -->
-    {{form_start(form)}}
-
-        {{form_widget(form)}}
-
-        <button type="submit" class="btn_connexion">Valider</button>
-    
-    {{form_end(form)}}
-
-{% else %}
-    
-    <div class="d-flex flex-column">
-        
-        <p>Pour laisser un commentaire :</p>
-
-        <button class="row btn_connexion">
-            <a data-toggle="modal" data-target="#loginModal" href="{{ path('app_login') }}">Se connecter</a>
-        </button>
-
-    </div>
-
-{% endif %}
+    {% endif %}
 
 
-<!-- Afficher les commentaires -->
-<div class="container">
+    <!-- Afficher les commentaires -->
+    <div class="container p-0 mt-3">
 
-    <div class="row">
+        <div class="row">
 
-        {% for comment in actualite.comments %}
+            {% for comment in actualite.comments %}
 
-            <div class="col-sm avis avis_1">
+                <div class="col-sm avis avis_1">
 
-                <h4>{{comment.userName}}</h4>
+                    <h4>{{comment.userName}}</h4>
 
-                <p>{{ comment.comment }}</p>
+                    <p>{{ comment.comment }}</p>
 
-                <br/>
+                    <br/>
 
-                <span>Publié le {{ actualite.date|date('d/m/Y') }}</span>
-                
-                <div class="row etoiles">
-                
-                    <i class="far fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                
+                    <span>Publié le {{ actualite.date|date('d/m/Y') }}</span>
+                    
+                    <div class="row etoiles">
+                    
+                        <i class="far fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    
+                    </div>
+
+                    <a href="{{ path('modifierCommentaire', { id: comment.id }) }}" class="btn mt-4 btn-outline-info"><i class="fas fa-tools" title="Modifier"></i></a>
+
                 </div>
 
-                <a href="{{ path('modifierCommentaire', { id: comment.id }) }}" class="btn btn-outline-info"><i class="fas fa-tools" title="Modifier"></i></a>
+            {% endfor %}
 
-            </div>
-
-        {% endfor %}
+        </div>
 
     </div>
 
-</div>
+</section>
 
 {% endblock %}

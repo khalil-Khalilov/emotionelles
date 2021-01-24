@@ -43,7 +43,7 @@
             {% for actualite in actualites %}
 
             <!-- ACTUALITE 1 : ACTUALITES -->
-            <div class="mb-5 actualites {{ loop.first or loop.index is divisible by (4) ? 'col-6 grand_bloc' : 'col-3 petit_bloc' }}">
+            <div class="mb-5 actualites {{ loop.first or loop.index is divisible by (6) ? 'col-6 pr-3 grand_bloc' : 'col-3 petit_bloc'}}">
             
                 <!-- IMAGE -->
                 <div class="image_actualite">
@@ -55,7 +55,7 @@
                 
                         <div class="more">
                         
-                            <p></p>
+                            <a href="{{ path('actualite', {id:actualite.id}) }}"></a>
                         
                         </div>
 
@@ -78,14 +78,11 @@
                 
                         <h4>{{ actualite.titre }}</h4>
 
-                        <p class="pt-1 {{ loop.first or loop.index is divisible by (3) ? 'mb-3' : '' }}">{{ actualite.description|length > 60 ? actualite.description|slice(0, 60) ~ '...' : actualite.description}} 
-                        <br/>
-                        <br/>
-                        Le {{ actualite.date|date('d/m/Y') }}
-                        À {{ actualite.lieu}}</p>
+                        <p class="pt-1">{{ actualite.description|length > 60 ? actualite.description|slice(0, 60) ~ '...' : actualite.description}}</p>
+                        <p class="{{ loop.first ? 'pt-5 pb-1' : 'pt-2'}}">Le {{ actualite.date|date('d/m/Y') }} À {{ actualite.lieu}}</p>
 
                         <div class="d-flex justify-content-end">
-                            <a href="{{ path('actualite', {id:actualite.id}) }}" class="mt-4 btn btn_menu btn_bleu">Lire</a>
+                            <a href="{{ path('actualite', {id:actualite.id}) }}" class="mt-4 btn btn_menu btn_lire">Lire&nbsp;&nbsp;<i class="fas fa-book-open"></i></a>
                         </div>
                     
                     </div>
@@ -97,6 +94,14 @@
             {% endfor %}
         
         </div>    
+
+        <div class="container mt-5 d-flex justify-content-center">
+        
+            <button class="btn_redirection">
+                <a href="#">en voir plus...</a>        
+            </button>    
+        
+        </div>
 
     </section>
        

@@ -52,6 +52,7 @@
 ul li img {
     width: 100%;
     height: 100%;
+    border-radius: 0.2rem;
 }
 
 .controls {
@@ -84,7 +85,7 @@ ul li img {
     justify-content: flex-start;
 }
 
-.bloc_gris_apropos {
+.bloc_gris_apropos, .bloc_gris_accueil {
     width: 130%;
     left: -15%;
 }
