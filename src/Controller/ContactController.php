@@ -14,7 +14,7 @@ class ContactController extends AbstractController
      * @Route("/contact", name="contact")
      */
     public function contact(EmailService $emailService, Request $request): Response
-    //cette function sera transmise et traitée dans le document/fichier service.
+    //cette fonction sera transmise et traitée dans le document/fichier service.
 
     {  
        
@@ -30,7 +30,6 @@ class ContactController extends AbstractController
        
             $emailService->send([
             //une variable $emailService en forme de tableau transmet les informations à Emailservice
-
             
                 'replyTo' => $email,
                 'message' => $message,
@@ -43,7 +42,7 @@ class ContactController extends AbstractController
                     'mail'=> $email,
                     'message'=> $message
             ]
-            // nous pouvons rajouter des lignes supplémentaire si besoin dans le tableau
+            // nous pouvons rajouter des lignes supplémentaires si besoin dans le tableau
         
         ]); 
 
