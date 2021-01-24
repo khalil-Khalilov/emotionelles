@@ -47,7 +47,6 @@ class MotdepasseController extends AbstractController
                         'user'=> $user,
                     ] ,
 
-
                 ]);
 
             }
@@ -64,16 +63,8 @@ class MotdepasseController extends AbstractController
     /**
      * @Route("/mot-de-passe-oublie/reinitialiser/{token}", name="nouveau_passe")
      */
-    public function envoipasseoublie(
-    $token,
-    Encryptor $encryptor,
-    UserRepository $userRepository,
-    Request $request,
-    UserPasswordEncoderInterface $passwordEncoder,
-    GuardAuthenticatorHandler $guardHandler,
-    ControlAuthenticator $authenticator
-    
-    ) {
+    public function envoipasseoublie($token, Encryptor $encryptor, UserRepository $userRepository, Request $request,UserPasswordEncoderInterface $passwordEncoder, GuardAuthenticatorHandler $guardHandler, ControlAuthenticator $authenticator) 
+    {
         $decrypt = $encryptor->decrypt($token);
         $pos = strpos($decrypt, 'nouveau-passe$');
         $email = str_replace('nouveau-passe$','', $decrypt);
