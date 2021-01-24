@@ -103,6 +103,15 @@ class ActualiteController extends AbstractController
 
                 $new = $actualite->getId() === NULL;
 
+                $image = $form->get('image')->getData();
+
+                if($image){
+                    $repertoire = $this->getParameter('images');
+                    $nomDuImage = 'images/'.'image'.'-'.uniqid().'.'.$image->guessExtension();
+                    $image->move($repertoire, $nomDuImage);
+                    $actualite->setImage($nomDuImage);
+                }
+;
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($actualite);
                 $em->flush();

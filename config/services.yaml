@@ -7,6 +7,7 @@ parameters:
     ADMIN_EMAIL: '%env(ADMIN_EMAIL)%'
     APP_ENV: '%env(APP_ENV)%'
     DOMAIN_NAME: '%env(DOMAIN_NAME)%'
+    images: '%kernel.project_dir%/public/images'
     
    
 services:
