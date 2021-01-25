@@ -8,7 +8,7 @@
 
     <!-- AFFICHER LES ACTUALITÉS -->
     <div class="jumbotron p-0 page_actualite">
-    
+
         <img src="{{asset(actualite.image)}}" alt="Image de l'actualité"/>
 
         <div class="bloc_texte">
@@ -40,6 +40,15 @@
 
     <!-- Verification SI user est connecter -->
     {% if is_granted('ROLE_USER') %}
+<<<<<<< HEAD
+
+        <!-- Formulaire de commentaire -->
+        {{form_start(form)}}
+
+            {{form_widget(form)}}
+                <button type="submit" class="btn btn_menu btn_connexion">Valider</button>
+        
+=======
 
         <!-- Formulaire de commentaire -->
         {{form_start(form)}}
@@ -47,10 +56,16 @@
             {{form_widget(form)}}
 
             <button type="submit" class="btn btn_menu btn_connexion">Valider</button>
+>>>>>>> 212bbd24aa7785d5a0ec0dd584c57fb92f23e119
         
         {{form_end(form)}}
 
     {% else %}
+<<<<<<< HEAD
+    
+    <div class="d-flex flex-column">
+=======
+>>>>>>> 212bbd24aa7785d5a0ec0dd584c57fb92f23e119
         
         <div class="d-flex flex-column">
             
@@ -92,7 +107,11 @@
                     
                     </div>
 
+<<<<<<< HEAD
+                <a href="{{ path('modifierCommentaire', { id: comment.id }) }}" class="btn btn-outline-info" title="Modifier"><i class="fas fa-tools" ></i></a>
+=======
                     <a href="{{ path('modifierCommentaire', { id: comment.id }) }}" class="btn mt-4 btn-outline-info"><i class="fas fa-tools" title="Modifier"></i></a>
+>>>>>>> 212bbd24aa7785d5a0ec0dd584c57fb92f23e119
 
                 </div>
 

@@ -16,7 +16,6 @@ class ConnexionController extends AbstractController
         return $this->render('connexion/connexion.html.twig', [
             
             'controller_name' => 'ConnexionController',
-        
         ]);
     }
 }
