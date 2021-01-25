@@ -7,7 +7,8 @@
     <!-- AFFICHER LES ACTUALITÉS -->
     <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
     
-        <img src="{{ actualite.image }}" alt="Image de l'actualité"/>
+        
+        {# <img src="{{asset('images/fauteuil_01.jpg')}}" alt="Image"/> #}
 
         <div class="col-md-6 px-0">
         
@@ -36,19 +37,19 @@
 
     </div>
 
-<!-- Verification SI user est connecter -->
-{% if is_granted('ROLE_USER') %}
+    <!-- Verification SI user est connecter -->
+    {% if is_granted('ROLE_USER') %}
 
-    <!-- Formulaire de commentaire -->
-    {{form_start(form)}}
+        <!-- Formulaire de commentaire -->
+        {{form_start(form)}}
 
-        {{form_widget(form)}}
+            {{form_widget(form)}}
+                <button type="submit" class="btn btn_menu btn_connexion">Valider</button>
+        
+        
+        {{form_end(form)}}
 
-        <button type="submit" class="row btn_connexion">Valider</button>
-    
-    {{form_end(form)}}
-
-{% else %}
+    {% else %}
     
     <div class="d-flex flex-column">
         
@@ -90,7 +91,7 @@
                 
                 </div>
 
-                <a href="{{ path('modifierCommentaire', { id: comment.id }) }}" class="btn btn-outline-info"><i class="fas fa-tools" title="Modifier"></i></a>
+                <a href="{{ path('modifierCommentaire', { id: comment.id }) }}" class="btn btn-outline-info" title="Modifier"><i class="fas fa-tools" ></i></a>
 
             </div>
 
