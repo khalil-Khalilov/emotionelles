@@ -22,7 +22,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ActualiteController extends AbstractController
 {
-    // PARTIE ACTUALITE
+    // PARTIE ACTUALITES
 
     /**
      * @Route("/actualites", name="actualites")

@@ -5,6 +5,8 @@
 
 {% block body %}
 
+<div class="container">
+
     {{form_start(form)}}
 
         {{form_widget(form)}}
@@ -12,5 +14,7 @@
         <button type="submit" class="btn btn-primary">Valider</button>    
 
     {{form_end(form)}}
+
+</div>
 
 {% endblock %}

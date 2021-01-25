@@ -56,11 +56,13 @@ class RegistrationController extends AbstractController
             $entityManager->persist($user);
             $entityManager->flush();
 
-            //generate un lien url envoyé a l'utilisateur
+            // genère un lien url envoyé à l'utilisateur
             $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
                 (new TemplatedEmail())
+
                     ->from(new Address('valordebene@gmail.com', 'emotionelles'))
                     ->to ($this->getParameter('ADMIN_EMAIL'))//($user->getEmail())
+
                     ->subject('Confirmez votre email')
                     ->htmlTemplate('registration/confirmation_email.html.twig')
            );

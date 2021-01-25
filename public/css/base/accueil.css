@@ -20,6 +20,7 @@
     top: 28%;
     left: 47%;
     z-index: -100;
+    border-radius: 0.2rem;
 }
 
 .titre_introduction {
@@ -35,14 +36,19 @@
 }
 
 .bloc_texte {
-    background-color: #FAFAFA;
+    background-color:  #0E7483;
     padding: 3rem;
+    border-radius: 0.2rem;
 }
 
 .bloc_texte p {
-    padding: 0.8rem 0
+    padding: 0.8rem 0;
+    color: white;
 }
 
+.introduction .bloc_texte h4, .introduction .btn_redirection a, .introduction .btn_redirection i {
+    color: white;
+}
 
 .titre_description span {
     font-size: 0.8rem;
@@ -58,6 +64,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
+    border-radius: 0.2rem;
 }
 
 /* SECTION 2 :REALISATIONS */
@@ -119,7 +126,7 @@
     height: 63%;
 }
 
-.more:hover p::before {
+.more:hover a::before {
     content:'en savoir plus';
     z-index: 100;
 }
@@ -132,25 +139,34 @@
     padding-top: 1rem;
 }
 
-.prix {
-    font-weight: bold;
-}
-
-.prix_btn_acheter {
+.prix_btn_acheter, .btn_lire  {
     background-color: #FAFAFA;
     padding: 0.5rem;
     justify-content: center;
+    border-radius: 0.2rem;
 }
 
 .btn_acheter {
     border: none;
+    border-radius: 0.2rem;
     background-color: transparent;
-    justify-content: center;
-    align-items: center;
+    display: block;
+    width: 100%;
+    text-align: center;
 }
 
-.prix_btn_acheter a:hover{
+.btn_acheter:hover {
+    color: white;
+}
+
+.prix_btn_acheter:hover, .btn_lire:hover {
+    background-color: #0E7483;
+    border-radius: 0.2rem;
+}
+
+.prix_btn_acheter a:hover, .btn_acheter a:hover, .btn_acheter .fas:hover {
     text-decoration: none;
+    color: white;
 }
 
 .btn_redirection_realisations, .btn_redirection_actualites {
@@ -161,6 +177,14 @@
 }
 
 /* SECTION 3 : PROJET PERSONNALISE */
+
+.projet_personnalise {
+    position:relative;
+}
+
+.bloc_gris_accueil {
+    top: 20%;
+}
 
 .categories_produits {
     height: 200px;
@@ -196,7 +220,7 @@
     background-position-y: 85px;
 }
 
-.bloc_categorie p, .more p {
+.bloc_categorie p, .more a {
     color: white;
     font-size: 1.9rem;
     display: flex;
@@ -204,6 +228,7 @@
     align-items: center;
     width: 100%;
     height: 100%;
+    text-decoration: none;
 }
 
 .bloc_categorie .follow {
@@ -270,6 +295,7 @@
     background-image: url('images/fauteuil_01.jpg');
     background-size: cover;
     background-repeat: no-repeat;
+    border-radius: 0.2rem;
 }
 
 .titre_avis {
@@ -279,6 +305,7 @@
 .avis {
     background-color: #FAFAFA;
     padding: 3rem;
+    border-radius: 0.2rem;
 }
 
 .avis h2 {

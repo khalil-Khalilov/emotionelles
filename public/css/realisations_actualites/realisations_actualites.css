@@ -1,5 +1,5 @@
 .page_realisations, .page_actualites {
-    height: 300px;
+    height: 450px;
 }
 
 .page_realisations img, .page_actualites img {
@@ -14,4 +14,41 @@
 
 .btn_bleu {
     width: 100%;
+}
+
+.btn_lire {
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: #0E7483;
+    font-weight: bold;
+}
+
+.btn_lire:hover {
+    color: white;
+}
+
+.page_actualite, .page_realisation {
+    height: 350px;
+    position: relative;
+}
+
+.page_actualite img, .page_realisation img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0.2rem;
+}
+
+.page_actualite .bloc_texte, .page_realisation .bloc_texte {
+    position: absolute;
+    z-index: 100;
+    top: 15%;
+    width: 90%;
+    left: 5%;
+    background-color: transparent;
+}
+
+.page_actualite .bloc_texte h2, .page_actualite .btn_redirection a, .page_actualite .btn_redirection .fas, .page_realisation .bloc_texte h2, .page_realisation .btn_redirection a, .page_realisation .btn_redirection .fas {
+    color: white;
 }

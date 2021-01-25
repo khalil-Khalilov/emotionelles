@@ -38,7 +38,7 @@
 
                         <!-- BOUTON LIEN PAGE A PROPOS -->
                         <button class="btn_redirection">
-                            <a href="{{ path('apropos') }}">nous connaitre&nbsp;&nbsp;<i class="fas fa-arrow-right"></i></a>
+                            <a href="{{ path('apropos') }}">nous connaître&nbsp;&nbsp;<i class="fas fa-arrow-right"></i></a>
                         </button>
                     
                     </div>
@@ -83,7 +83,7 @@
                 
                         <div class="more">
                         
-                            <p></p>
+                            <a href="{{ path('realisation', {id:realisation.id}) }}"></a>
                         
                         </div>
 
@@ -105,17 +105,17 @@
                 <!-- TEXTE -->
                 <div class="texte_realisations">
                 
-                    <div class="row pb-2 titre_description">
+                    <div class="col pl-0 pb-2 titre_description">
                     
                         <h4>{{realisation.nomProduit}}</h4>
     
-                        <p class="pt-1 {{ loop.first ? 'pl-2' : ' ' }}">{{realisation.caracteristique|length > 30 ? realisation.caracteristique|slice(0, 30) ~ '...' : realisation.caracteristique}}</p>
+                        <p class="pt-1">{{realisation.caracteristique|length > 30 ? realisation.caracteristique|slice(0, 30) ~ '...' : realisation.caracteristique}}</p>
                     
                     </div>
 
                     <div class="row mt-4 prix_btn_acheter">
                         
-                        <button class="row btn_acheter"><a href="#">Acheter&nbsp;<span class="prix">&nbsp;{{realisation.prix}} €&nbsp;</span></a><i class="fas fa-store"></i></button>
+                        <a class="row btn_acheter" href="{{ path('realisation', {id:realisation.id}) }}">Acheter&nbsp;&nbsp;{{realisation.prix}} €&nbsp;<i class="fas fa-store"></i></a>
                     
                     </div>
                 
@@ -182,6 +182,8 @@
 
         </div>
 
+        <div class="bloc_gris bloc_gris_accueil"></div>
+
         <div class="lien_projet_personnalise">
              
             <div class="d-flex flex-column titre_personnalise">
@@ -232,7 +234,7 @@
                 
                         <div class="more">
                         
-                            <p></p>
+                            <a href="{{ path('actualite', {id:actualite.id}) }}"></a>
                         
                         </div>
 
@@ -251,13 +253,12 @@
                 <!-- TEXTE -->
                 <div class="texte_actualite">
 
-                    <div class="row pb-2 titre_description">
+                    <div class="col p-0 pb-2 titre_description">
                 
                         <h4>{{ actualite.titre }}</h4>
 
-                        <p class="pt-1">{{ actualite.description|length > 60 ? actualite.description|slice(0, 60) ~ '...' : actualite.description}} 
-                        <br/>
-                        Le {{ actualite.date|date('d/m/Y') }}</p>
+                        <p class="pt-1 pb-1">{{ actualite.description|length > 60 ? actualite.description|slice(0, 60) ~ '...' : actualite.description}}</p>
+                        <p class="{{ loop.last ? 'pt-3' : ''}}">Le {{ actualite.date|date('d/m/Y') }}</p>
                     
                     </div>
                 
