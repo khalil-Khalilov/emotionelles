@@ -4,7 +4,7 @@
 
 {% block body %}
 
-<div class="modal-body d-flex flex-row justify-content-around mb-4 p-3">
+<div class="modal-body d-flex flex-row justify-content-around mb-0 p-3 reservation">
         
     <!-- IMAGE GAUCHE POP UP -->
     <div class="img_popup"></div>
@@ -12,7 +12,7 @@
     <!-- FORMULAIRE DE CONNEXION -->
     <div class="deja_inscrit d-flex flex-column justify-content-center">
         
-        <h4>Un projet personnalisé? Prenez rendez-vous!</h4>
+        <h4 class="mb-5"><span>Un projet personnalisé?</span>&nbsp;&nbsp;Prenez rendez-vous!</h4>
 
         {# <form action="" method="POST">
 
@@ -97,24 +97,16 @@
 
         </form> #}
 
-    {{form_start(form)}}
-        
-        {{form_widget(form)}}
-        
-        <button type="submit" class="btn btn-primary">Valider</button>
+        {{form_start(form)}}
+            
+            {{form_widget(form)}}
+            
+            <button type="submit" class="btn btn_menu btn_connexion">Valider</button>
 
-    {{form_end(form)}}
-    
+        {{form_end(form)}}
+
     </div>
 
 </div>
-
-    {# {{form_start(form)}}
-        
-        {{form_widget(form)}}
-        
-        <button type="submit" class="btn btn-primary">Valider</button>
-
-    {{form_end(form)}} #}
 
 {% endblock %}
