@@ -59,7 +59,7 @@ class RegistrationController extends AbstractController
             //generate un lien url envoyé a l'utilisateur
             $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,
                 (new TemplatedEmail())
-                    ->from(new Address('messaoudi.alison@gmail.com', 'emotionelles'))
+                    ->from(new Address('valordebene@gmail.com', 'emotionelles'))
                     ->to ($this->getParameter('ADMIN_EMAIL'))//($user->getEmail())
                     ->subject('Confirmez votre email')
                     ->htmlTemplate('registration/confirmation_email.html.twig')
@@ -83,7 +83,7 @@ class RegistrationController extends AbstractController
      * @Route("/verify/email", name="app_verify_email")
      */ 
     public function verifyUserEmail(Request $request)
-    {
+    {//validation de l email a partir d'un lien d'inscription dans le User  quand quelqu'un s'inscrit il verifie avec la function private dasn User.php
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         
         try

@@ -10,7 +10,7 @@ class EmailService
 
 {
 
-    Private $mailer;                //declaration de la variable mailer
+    Private $mailer;                //declaration de la variable mailer permettant l'envoi d'email.
     Private $adminEmail;
     Private $env;
     private $translator;
@@ -18,7 +18,7 @@ class EmailService
 
     public function __construct($DOMAIN_NAME, MailerInterface $mailer, $adminEmail, $env, TranslatorInterface $translator)
     {
-    //injection de service dans un service. nous utilisons la fonction __construct.
+    //injection de service dans un service deja en place.Nous utilisons la fonction __construct.
         
         $this->mailer = $mailer;   
         $this->DOMAIN_NAME = $DOMAIN_NAME; 
